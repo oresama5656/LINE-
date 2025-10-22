@@ -1,0 +1,15 @@
+{
+  "name": "line-stamp-maker",
+  "version": "1.0.0",
+  "description": "LINEスタンプ用画像自動合成ツール",
+  "main": "combine.js",
+  "scripts": {
+    "start": "node combine.js"
+  },
+  "keywords": ["line", "stamp", "image", "combine"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "sharp": "^0.33.0"
+  }
+}

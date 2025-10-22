@@ -1,0 +1,664 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Sora GUI自動操作 - コア処理 (イベント駆動版)
+
+UIとコア機能を完全分離、イベント駆動アーキテクチャで実装
+print文は一切含まず、全ての進捗情報はイベントで通知
+"""
+
+import csv
+import pyautogui
+import pyperclip
+import time
+import os
+import win32gui
+import win32con
+from pathlib import Path
+from typing import Generator, Dict, Any, Optional, List, Tuple
+import threading
+import logging
+
+
+# カスタム例外
+class InputError(Exception):
+    """入力エラー（CSV不存在、形式不正等）"""
+    pass
+
+
+class RunError(Exception):
+    """実行エラー（GUI操作失敗等）"""
+    pass
+
+
+class ChatGPTCore:
+    """ChatGPT GUI操作のコア機能（イベント駆動版）"""
+
+    # ========================================
+    # スリープ時間設定（PCの速度に応じて調整可能）
+    # ========================================
+
+    # 短スリープ - キーボード・マウス操作後の待機時間
+    # 使用箇所: ウィンドウ切り替え後, クリック後, Ctrl+A後, コピー後, Enter後
+    # 高速PC: 0.2 / 中速PC: 0.3 / 低速PC: 0.5
+    SHORT_SLEEP = 0.3
+
+    # 長スリープ - 重い処理(貼り付け反映, ウィンドウアクティブ化)の待機時間
+    # 使用箇所: ウィンドウアクティブ化後, Ctrl+V貼り付け後
+    # 高速PC: 0.5 / 中速PC: 1.0 / 低速PC: 1.5
+    LONG_SLEEP = 1.0
+
+    def __init__(self, wait=60, profile_dir=None, pause_for_login=False, stop_flag=None, logger=None, dry_run=False, max_items=None, retry=0, prefix="", suffix="", short_sleep=None, long_sleep=None):
+        self.wait = wait
+        self.profile_dir = profile_dir
+        self.pause_for_login = pause_for_login
+        self.stop_flag = stop_flag or threading.Event()
+        self.logger = logger or logging.getLogger('sora_null')
+        self.dry_run = dry_run
+        self.max_items = max_items
+        self.retry = retry
+        self.prefix = prefix
+        self.suffix = suffix
+        self.input_x = 0
+        self.input_y = 0
+        self.chatgpt_window_handle = None
+        self.original_window_handle = None
+
+        # GUIから渡された値を使用、なければクラス定数を使用
+        self.SHORT_SLEEP = short_sleep if short_sleep is not None else self.SHORT_SLEEP
+        self.LONG_SLEEP = long_sleep if long_sleep is not None else self.LONG_SLEEP
+
+        # PyAutoGUI設定
+        pyautogui.FAILSAFE = True
+        pyautogui.PAUSE = 0.0  # カスタムスリープで制御するため無効化
+    
+    def _check_stop(self):
+        """緊急停止チェック"""
+        if self.stop_flag.is_set():
+            raise KeyboardInterrupt("Process stopped by user")
+    
+    def find_chatgpt_window(self):
+        """ChatGPTウィンドウを検索してハンドルを取得（座標記録時に実際のウィンドウを記録）"""
+        self.logger.debug("Window will be captured during coordinate setup...")
+
+        # ダミーのウィンドウ情報を返す（実際のウィンドウは座標記録時に取得）
+        return "Active window (will be captured during coordinate setup)"
+    
+    def activate_chatgpt_window(self):
+        """ChatGPTウィンドウをアクティブ化（座標記録時に記録されたウィンドウを使用）"""
+        if not self.chatgpt_window_handle:
+            self.logger.error("ChatGPT window handle not captured yet")
+            return False
+
+        try:
+            self.original_window_handle = win32gui.GetForegroundWindow()
+            win32gui.ShowWindow(self.chatgpt_window_handle, win32con.SW_RESTORE)
+            win32gui.SetForegroundWindow(self.chatgpt_window_handle)
+            time.sleep(self.SHORT_SLEEP)  # ウィンドウ切り替え後の待機
+            return True
+        except Exception as e:
+            self.logger.error(f"Failed to activate window: {e}")
+            return False
+    
+    def restore_original_window(self):
+        """元のアクティブウィンドウに戻す"""
+        if self.original_window_handle:
+            try:
+                win32gui.SetForegroundWindow(self.original_window_handle)
+            except Exception:
+                pass
+    
+    def load_prompts(self, csv_path, use_csv_mode=False) -> List[Tuple[str, str, str]]:
+        """CSVファイルからプロンプトを読み込み（複数エンコーディング対応・CSV/GUIモード切り替え）
+
+        Args:
+            csv_path: CSVファイルパス
+            use_csv_mode: Trueの場合CSV列からprefix/suffixを読み込み、Falseの場合GUIデフォルト値を使用
+
+        Returns:
+            List of (prompt, prefix, suffix) tuples
+        """
+        csv_path = Path(csv_path)
+
+        self.logger.info(f"Loading prompts from CSV: {csv_path} (mode: {'CSV' if use_csv_mode else 'GUI'})")
+
+        if not csv_path.exists():
+            self.logger.error(f"CSV file not found: {csv_path}")
+            raise InputError(f"CSV file not found: {csv_path}")
+
+        # 複数のエンコーディングを試行（標準csvモジュールを使用）
+        encodings = ['utf-8', 'cp932', 'shift-jis', 'utf-8-sig']
+        rows = None
+        successful_encoding = None
+
+        for encoding in encodings:
+            try:
+                with open(csv_path, 'r', encoding=encoding, newline='') as f:
+                    reader = csv.DictReader(f)
+                    rows = list(reader)
+                successful_encoding = encoding
+                self.logger.debug(f"CSV loaded with {encoding} encoding, {len(rows)} rows")
+                break
+            except (UnicodeDecodeError, UnicodeError):
+                continue
+            except Exception as e:
+                if encoding == encodings[-1]:
+                    self.logger.error(f"Failed to read CSV file: {e}")
+                    raise InputError(f"Failed to read CSV file: {e}")
+                continue
+
+        if rows is None or len(rows) == 0:
+            self.logger.error("Failed to read CSV file with any supported encoding")
+            raise InputError(f"Failed to read CSV file. Tried encodings: {', '.join(encodings)}")
+
+        # prompt列の存在確認
+        if 'prompt' not in rows[0]:
+            self.logger.error(f"'prompt' column not found in CSV. Available columns: {list(rows[0].keys())}")
+            raise InputError("'prompt' column not found in CSV file")
+
+        # prefix/suffix列の存在確認
+        has_prefix = 'prefix' in rows[0]
+        has_suffix = 'suffix' in rows[0]
+
+        # デフォルト値（GUIから渡された値）
+        default_prefix = self.prefix
+        default_suffix = self.suffix
+        last_prefix = default_prefix
+        last_suffix = default_suffix
+
+        # CSV Modeでも列がない場合は警告を出してGUI Modeにフォールバック
+        if use_csv_mode and not has_prefix and not has_suffix:
+            self.logger.warning("CSV Mode selected but no prefix/suffix columns found, using GUI defaults")
+            use_csv_mode = False
+
+        result = []
+
+        if use_csv_mode and (has_prefix or has_suffix):
+            # CSV Mode: 各行のprefix/suffixを使用（空欄は前行引き継ぎ）
+            for row in rows:
+                prompt = row.get('prompt', '').strip()
+                if not prompt:
+                    continue  # 空行スキップ
+
+                # prefix処理（列がない場合はデフォルト）
+                if has_prefix:
+                    prefix = row.get('prefix', '')  # .strip()を削除して前後の改行・空白を保持
+                    if prefix == '':  # 完全に空の場合のみ前行引き継ぎ
+                        prefix = last_prefix
+                    else:
+                        last_prefix = prefix
+                else:
+                    prefix = default_prefix
+
+                # suffix処理（列がない場合はデフォルト）
+                if has_suffix:
+                    suffix = row.get('suffix', '')  # .strip()を削除して前後の改行・空白を保持
+                    if suffix == '':  # 完全に空の場合のみ前行引き継ぎ
+                        suffix = last_suffix
+                    else:
+                        last_suffix = suffix
+                else:
+                    suffix = default_suffix
+
+                result.append((prompt, prefix, suffix))
+        else:
+            # GUI Mode: 全行でGUIデフォルト値を使用
+            for row in rows:
+                prompt = row.get('prompt', '').strip()
+                if not prompt:
+                    continue
+                result.append((prompt, default_prefix, default_suffix))
+
+        if not result:
+            self.logger.warning("No prompts found in CSV file")
+            raise InputError("No prompts found in CSV file")
+
+        self.logger.info(f"Loaded {len(result)} prompts (encoding: {successful_encoding}, mode: {'CSV' if use_csv_mode else 'GUI'})")
+        return result
+    
+    def remove_processed_prompt(self, csv_path, processed_prompt):
+        """処理済みプロンプトをCSVファイルから削除（複数エンコーディング対応）"""
+        try:
+            # 複数のエンコーディングを試行して読み込み
+            encodings = ['utf-8', 'cp932', 'shift-jis', 'utf-8-sig']
+            rows = None
+            fieldnames = None
+            successful_encoding = None
+
+            for encoding in encodings:
+                try:
+                    with open(csv_path, 'r', encoding=encoding, newline='') as f:
+                        reader = csv.DictReader(f)
+                        fieldnames = reader.fieldnames
+                        rows = list(reader)
+                    successful_encoding = encoding
+                    break
+                except (UnicodeDecodeError, UnicodeError):
+                    continue
+                except Exception:
+                    if encoding == encodings[-1]:
+                        return False, 0, 0
+                    continue
+
+            if rows is None or fieldnames is None:
+                return False, 0, 0
+
+            if 'prompt' not in fieldnames:
+                return False, 0, 0
+
+            original_count = len(rows)
+            # 処理済みプロンプトと一致する最初の1行のみ削除
+            found_first = False
+            filtered_rows = []
+            for row in rows:
+                if not found_first and row.get('prompt', '').strip() == processed_prompt.strip():
+                    found_first = True
+                    continue  # 最初の一致行のみスキップ（削除）
+                filtered_rows.append(row)
+            new_count = len(filtered_rows)
+
+            if original_count > new_count:
+                # 同じエンコーディングで保存
+                with open(csv_path, 'w', encoding=successful_encoding, newline='') as f:
+                    writer = csv.DictWriter(f, fieldnames=fieldnames)
+                    writer.writeheader()
+                    writer.writerows(filtered_rows)
+                return True, original_count, new_count
+            return False, original_count, new_count
+        except Exception:
+            return False, 0, 0
+
+
+def iter_process_prompts(csv_path, wait=60, profile_dir=None, pause_for_login=False,
+                        stop_flag=None, logger=None, dry_run=False, max_items=None, retry=0, prefix="", suffix="", short_sleep=None, long_sleep=None, use_csv_mode=False) -> Generator[Dict[str, Any], None, Dict[str, int]]:
+    """
+    プロンプト一括処理のメイン関数（Generator版）
+    
+    Args:
+        csv_path (str): CSVファイルパス
+        wait (int): 生成完了待機時間（秒）
+        profile_dir (str): プロファイルディレクトリ（未使用）
+        pause_for_login (bool): ログイン用一時停止（未使用）
+        stop_flag (threading.Event): 緊急停止用フラグ
+        logger (logging.Logger): ロガーオブジェクト
+        dry_run (bool): シミュレーションモード（ブラウザ操作なし）
+        max_items (int): 処理する最大プロンプト数
+        retry (int): 失敗時のリトライ回数
+    
+    Yields:
+        Dict[str, Any]: イベント辞書
+    
+    Returns:
+        Dict[str, int]: 最終結果 {"total": int, "sent": int, "failed": int}
+    
+    Raises:
+        InputError: 入力エラー（CSV不存在等）
+        RunError: 実行エラー（GUI操作失敗等）
+    """
+    core = ChatGPTCore(wait=wait, profile_dir=profile_dir,
+                    pause_for_login=pause_for_login, stop_flag=stop_flag, logger=logger,
+                    dry_run=dry_run, max_items=max_items, retry=retry, prefix=prefix, suffix=suffix,
+                    short_sleep=short_sleep, long_sleep=long_sleep)
+    
+    try:
+        # フェーズ1: 初期化
+        yield {"type": "phase", "name": "initialization"}
+        
+        # プロンプト読み込み (use_csv_modeフラグを渡す)
+        prompts = core.load_prompts(csv_path, use_csv_mode)
+        
+        # max_items制限適用
+        if max_items and len(prompts) > max_items:
+            if logger:
+                logger.info(f"Limiting prompts from {len(prompts)} to {max_items} items")
+            prompts = prompts[:max_items]
+        
+        total_prompts = len(prompts)
+        
+        yield {
+            "type": "loaded", 
+            "total": total_prompts,
+            "csv_path": str(csv_path),
+            "dry_run": dry_run,
+            "max_items": max_items
+        }
+        
+        # フェーズ2: Soraウィンドウ検索
+        yield {"type": "phase", "name": "window_search"}
+        
+        if dry_run:
+            # dry-runモードではブラウザ検索をスキップ
+            if logger:
+                logger.info("Dry-run mode: Skipping browser window search")
+            yield {
+                "type": "window_found", 
+                "title": "[DRY-RUN] Simulated ChatGPT Window",
+                "dry_run": True
+            }
+        else:
+            window_title = core.find_chatgpt_window()
+            if not window_title:
+                if logger:
+                    logger.error("ChatGPT window not found")
+                raise RunError("ChatGPT window not found. Please open https://chatgpt.com in browser.")
+            
+            yield {
+                "type": "window_found", 
+                "title": window_title
+            }
+        
+        # フェーズ3: 座標設定
+        yield {"type": "phase", "name": "coordinate_setup"}
+        
+        if dry_run:
+            # dry-runモードでは座標設定をスキップ
+            if logger:
+                logger.info("Dry-run mode: Skipping coordinate setup")
+            core.input_x, core.input_y = 100, 200  # ダミー座標
+            yield {
+                "type": "coordinate", 
+                "x": core.input_x, 
+                "y": core.input_y,
+                "dry_run": True
+            }
+        else:
+            # 5秒カウントダウン
+            for i in range(5, 0, -1):
+                core._check_stop()
+                yield {
+                    "type": "countdown", 
+                    "seconds_left": i,
+                    "phase": "coordinate_setup",
+                    "message": "ChatGPTの入力欄にマウスカーソルを置いてください"
+                }
+                time.sleep(1)
+            
+            # 座標記録とアクティブウィンドウの同時取得
+            core.input_x, core.input_y = pyautogui.position()
+            core.chatgpt_window_handle = win32gui.GetForegroundWindow()
+
+            yield {
+                "type": "coordinate",
+                "x": core.input_x,
+                "y": core.input_y,
+                "window_captured": True
+            }
+        
+        # フェーズ4: 処理準備
+        yield {"type": "phase", "name": "processing_prep"}
+        
+        if not dry_run:
+            # 処理開始前の5秒カウントダウン
+            for i in range(5, 0, -1):
+                core._check_stop()
+                yield {
+                    "type": "countdown", 
+                    "seconds_left": i,
+                    "phase": "processing_prep",
+                    "message": "自動処理を開始します"
+                }
+                time.sleep(1)
+        else:
+            if logger:
+                logger.info("Dry-run mode: Skipping processing preparation countdown")
+        
+        # フェーズ5: プロンプト処理
+        yield {"type": "phase", "name": "processing"}
+        
+        sent_count = 0
+        failed_count = 0
+        
+        for i, (prompt, row_prefix, row_suffix) in enumerate(prompts, 1):
+            core._check_stop()
+
+            yield {
+                "type": "progress",
+                "step": "start",
+                "index": i,
+                "total": total_prompts,
+                "prompt": prompt[:50] + "..." if len(prompt) > 50 else prompt,
+                "dry_run": dry_run
+            }
+            
+            # リトライロジック
+            attempt = 0
+            max_attempts = retry + 1
+            success = False
+            
+            while attempt < max_attempts and not success:
+                attempt += 1
+                
+                if attempt > 1:
+                    if logger:
+                        logger.info(f"Retry attempt {attempt-1}/{retry} for prompt {i}")
+                    yield {
+                        "type": "retry",
+                        "attempt": attempt - 1,
+                        "max_retry": retry,
+                        "index": i,
+                        "total": total_prompts
+                    }
+                
+                try:
+                    if dry_run:
+                        # dry-runモードではGUI操作をスキップ
+                        if logger:
+                            logger.debug(f"Dry-run mode: Simulating prompt {i} processing")
+                        
+                        yield {
+                            "type": "progress", 
+                            "step": "simulate",
+                            "index": i, 
+                            "total": total_prompts,
+                            "dry_run": True
+                        }
+                        
+                        # シミュレーション用の短い待機
+                        time.sleep(0.5)
+                        success = True
+                        sent_count += 1
+                    else:
+                        # ChatGPTウィンドウをアクティブ化
+                        if not core.activate_chatgpt_window():
+                            raise RunError("Failed to activate ChatGPT window")
+                
+                        yield {
+                            "type": "progress",
+                            "step": "activate",
+                            "index": i,
+                            "total": total_prompts
+                        }
+
+                        time.sleep(core.LONG_SLEEP)  # ウィンドウアクティブ化後の待機
+
+                        # 入力エリアをクリック
+                        pyautogui.click(core.input_x, core.input_y)
+                        time.sleep(core.SHORT_SLEEP)  # クリック後の待機
+                
+                        yield {
+                            "type": "progress", 
+                            "step": "click",
+                            "index": i, 
+                            "total": total_prompts,
+                            "x": core.input_x,
+                            "y": core.input_y
+                        }
+                
+                        # 既存テキストをクリア
+                        pyautogui.hotkey('ctrl', 'a')
+                        time.sleep(core.SHORT_SLEEP)  # Ctrl+A選択後の待機
+
+                        # プレフィックス・サフィックスを適用してクリップボードにコピー（行ごとの値を使用）
+                        final_prompt = f"{row_prefix}{prompt}{row_suffix}" if (row_prefix or row_suffix) else prompt
+                        pyperclip.copy(final_prompt)
+                        time.sleep(core.SHORT_SLEEP)  # クリップボードコピー後の待機
+                
+                        yield {
+                            "type": "progress", 
+                            "step": "copy",
+                            "index": i, 
+                            "total": total_prompts
+                        }
+                
+                        # クリップボードから貼り付け
+                        pyautogui.hotkey('ctrl', 'v')
+                        time.sleep(core.LONG_SLEEP)  # Ctrl+V貼り付け後の待機
+
+                        yield {
+                            "type": "progress",
+                            "step": "paste",
+                            "index": i,
+                            "total": total_prompts
+                        }
+
+                        # Enterキーで送信
+                        pyautogui.press('enter')
+                        time.sleep(core.SHORT_SLEEP)  # Enter送信後の待機
+                
+                        yield {
+                            "type": "progress", 
+                            "step": "send",
+                            "index": i, 
+                            "total": total_prompts
+                        }
+                        
+                        success = True
+                        sent_count += 1
+                
+                except RunError as e:
+                    if attempt >= max_attempts:
+                        failed_count += 1
+                        if logger:
+                            logger.error(f"RunError processing prompt {i} after {retry} retries: {e}")
+                        yield {
+                            "type": "error",
+                            "step": "send_prompt",
+                            "index": i,
+                            "total": total_prompts,
+                            "error": str(e),
+                            "attempts": attempt,
+                            "max_retry": retry
+                        }
+                    # リトライの場合はcontinueで次のループへ
+                    continue
+                except Exception as e:
+                    if attempt >= max_attempts:
+                        failed_count += 1
+                        if logger:
+                            logger.error(f"Unexpected error processing prompt {i} after {retry} retries: {e}")
+                        yield {
+                            "type": "error",
+                            "step": "unexpected",
+                            "index": i,
+                            "total": total_prompts,
+                            "error": str(e),
+                            "attempts": attempt,
+                            "max_retry": retry
+                        }
+                    # リトライの場合はcontinueで次のループへ
+                    continue
+            
+            # 成功時の処理済みプロンプト削除
+            if success and not dry_run:
+                success_csv, old_count, new_count = core.remove_processed_prompt(csv_path, prompt)
+                if success_csv:
+                    if logger:
+                        logger.info(f"Removed processed prompt from CSV: {old_count} -> {new_count} rows")
+                    yield {
+                        "type": "csv_updated", 
+                        "removed": prompt[:30] + "..." if len(prompt) > 30 else prompt,
+                        "old_count": old_count,
+                        "new_count": new_count
+                    }
+                
+            # 最後のプロンプト以外は生成完了を待つ
+            if success and i < len(prompts) and not dry_run:
+                yield {"type": "phase", "name": "generation_wait"}
+                
+                # 元のウィンドウに戻す
+                core.restore_original_window()
+                
+                # 待機時間中のカウントダウン
+                remaining = core.wait
+                while remaining > 0:
+                    core._check_stop()
+                    
+                    mins = remaining // 60
+                    secs = remaining % 60
+                    
+                    yield {
+                        "type": "wait",
+                        "seconds_left": remaining,
+                        "minutes": mins,
+                        "seconds": secs,
+                        "next_index": i + 1,
+                        "total": total_prompts
+                    }
+                    
+                    time.sleep(min(10, remaining))  # 10秒または残り時間
+                    remaining -= min(10, remaining)
+        
+        # 最後のプロンプト処理後も生成完了を待機
+        if sent_count > 0 and not dry_run:
+            yield {"type": "phase", "name": "final_wait"}
+            
+            core.restore_original_window()
+            remaining = core.wait
+            while remaining > 0:
+                core._check_stop()
+                
+                mins = remaining // 60
+                secs = remaining % 60
+                
+                yield {
+                    "type": "wait",
+                    "seconds_left": remaining,
+                    "minutes": mins,
+                    "seconds": secs,
+                    "final": True
+                }
+                
+                time.sleep(min(10, remaining))
+                remaining -= min(10, remaining)
+        
+        # 最終結果
+        result = {
+            "total": total_prompts,
+            "sent": sent_count,
+            "failed": failed_count
+        }
+        
+        if logger:
+            logger.info(f"Processing completed: {sent_count}/{total_prompts} sent, {failed_count} failed")
+        
+        yield {
+            "type": "result",
+            **result
+        }
+        
+        return result
+        
+    except pyautogui.FailSafeException:
+        raise RunError("Emergency stop activated (mouse moved to corner)")
+    except KeyboardInterrupt:
+        raise RunError("Process interrupted by user")
+    except Exception as e:
+        if isinstance(e, (InputError, RunError)):
+            raise
+        raise RunError(f"Unexpected error: {e}")
+
+
+# 後方互換性のための関数
+def process_prompts(csv_path, wait=60, profile_dir=None, pause_for_login=False, logger=None, dry_run=False, max_items=None, retry=0, prefix="", suffix=""):
+    """
+    後方互換性のためのラッパー関数
+
+    Returns:
+        dict: {"total": int, "sent": int, "failed": int}
+    """
+    result = None
+    for event in iter_process_prompts(csv_path, wait, profile_dir, pause_for_login, logger=logger, dry_run=dry_run, max_items=max_items, retry=retry, prefix=prefix, suffix=suffix):
+        if event.get("type") == "result":
+            result = {k: v for k, v in event.items() if k != "type"}
+
+    return result or {"total": 0, "sent": 0, "failed": 0}

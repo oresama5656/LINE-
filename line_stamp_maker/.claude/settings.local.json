@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(node:*)",
+      "Read(E:\\画像作業場/**)",
+      "Read(//d/WordPress_coommu/my-blog/launchers/**)",
+      "Read(//d/WordPress_coommu/my-blog/**)",
+      "Read(//d/WordPress_coommu/my-blog/tools/**)",
+      "Bash(python -m tools.chatgpt_prefix.gui_launcher:*)",
+      "Bash(pip install:*)",
+      "Bash(python:*)",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"WebP→PNG変換.ps1\")",
+      "Bash(powershell.exe -Command \"\n$content = Get-Content ''WebP→PNG変換.ps1'' -Raw -Encoding UTF8\n$utf8BOM = New-Object System.Text.UTF8Encoding $true\n[System.IO.File]::WriteAllText((Resolve-Path ''WebP→PNG変換.ps1''), $content, $utf8BOM)\nWrite-Host ''ファイルをUTF-8 BOMで保存しました''\n\")",
+      "Bash(powershell.exe -Command \"\n$content = Get-Content ''WebP→PNG変換.ps1'' -Raw -Encoding UTF8\n$utf8BOM = New-Object System.Text.UTF8Encoding $true\n[System.IO.File]::WriteAllText((Resolve-Path ''WebP→PNG変換.ps1''), $content, $utf8BOM)\nWrite-Host ''UTF-8 BOMで保存完了''\n\")",
+      "Bash(cmd.exe /c \"WebP→PNG変換（配布可能版）.bat\")",
+      "Bash(echo.)",
+      "Bash(cmd.exe /c webp2png.bat)",
+      "Bash(cmd.exe /c \"webp2png.bat & exit\")",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"convert-webp-to-png.ps1\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
