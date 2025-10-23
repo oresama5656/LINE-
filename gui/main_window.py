@@ -12,6 +12,7 @@ from pathlib import Path
 from datetime import datetime
 import sys
 import os
+import shutil
 
 # PIL for image thumbnail
 try:
@@ -81,7 +82,7 @@ class StampMakerGUI:
 
         # ウィンドウ設定
         self.root.title("LINEスタンプ自動生成ツール - ver 1.0")
-        self.root.geometry("700x750")
+        self.root.geometry("600x600")
         self.root.resizable(True, True)
 
         # 変数
@@ -116,15 +117,18 @@ class StampMakerGUI:
 
     def create_widgets(self):
         """ウィジェット作成"""
+        # 上部フレーム（後でsetup_layoutで使用）
+        self.top_frame = ttk.Frame(self.root)
+
         # フォルダ選択フレーム
-        self.folder_frame = ttk.LabelFrame(self.root, text="📂 ドロップまたは選択", padding="10")
+        self.folder_frame = ttk.LabelFrame(self.top_frame, text="📂 ドロップまたは選択", padding="5")
 
         self.folder_label = ttk.Label(
             self.folder_frame,
             textvariable=self.folder_var,
             relief="solid",
             borderwidth=2,
-            padding=20,
+            padding=10,
             background="#f0f0f0",
             anchor="center"
         )
@@ -132,7 +136,7 @@ class StampMakerGUI:
         self.browse_btn = ttk.Button(self.folder_frame, text="フォルダを選択", command=self.browse_folder)
 
         # 設定フレーム
-        self.settings_frame = ttk.LabelFrame(self.root, text="⚙️ 設定", padding="10")
+        self.settings_frame = ttk.LabelFrame(self.top_frame, text="⚙️ 設定", padding="5")
 
         ttk.Label(self.settings_frame, text="リサイズモード:").grid(row=0, column=0, sticky="w", padx=(0, 10))
         self.fit_radio = ttk.Radiobutton(self.settings_frame, text="縮小", variable=self.mode_var, value="fit")
@@ -151,7 +155,7 @@ class StampMakerGUI:
         self.save_config_btn.grid(row=2, column=0, columnspan=3, pady=(10, 0))
 
         # 処理選択フレーム
-        self.process_frame = ttk.LabelFrame(self.root, text="▶️ 処理内容選択", padding="10")
+        self.process_frame = ttk.LabelFrame(self.root, text="▶️ 処理内容選択", padding="5")
 
         self.convert_check = ttk.Checkbutton(
             self.process_frame,
@@ -176,47 +180,48 @@ class StampMakerGUI:
             text="☑ tab/main画像を作成",
             variable=self.do_main_tab_var
         )
-        self.main_tab_check.grid(row=0, column=0, columnspan=3, sticky="w", pady=(0, 5))
+        self.main_tab_check.grid(row=0, column=0, columnspan=6, sticky="w", pady=(0, 5))
 
-        # main画像選択
+        # main画像選択（左側）
         ttk.Label(self.main_tab_frame, text="main画像:").grid(row=1, column=0, sticky="w", padx=(0, 5))
         self.main_file_btn = ttk.Button(
             self.main_tab_frame,
             text="画像を選択...",
             command=self.select_main_image,
-            width=15
+            width=12
         )
         self.main_file_btn.grid(row=1, column=1, sticky="w", padx=(0, 5))
         self.main_file_label = ttk.Label(
             self.main_tab_frame,
             textvariable=self.main_file_label_var,
-            foreground="gray"
+            foreground="gray",
+            width=15
         )
-        self.main_file_label.grid(row=1, column=2, sticky="w")
+        self.main_file_label.grid(row=1, column=2, sticky="w", padx=(0, 10))
 
-        # main画像プレビュー
-        self.main_preview_label = ttk.Label(self.main_tab_frame, text="")
-        self.main_preview_label.grid(row=2, column=1, columnspan=2, sticky="w", pady=(2, 5))
-
-        # tab画像選択
-        ttk.Label(self.main_tab_frame, text="tab画像:").grid(row=3, column=0, sticky="w", padx=(0, 5))
+        # tab画像選択（右側）
+        ttk.Label(self.main_tab_frame, text="tab画像:").grid(row=1, column=3, sticky="w", padx=(0, 5))
         self.tab_file_btn = ttk.Button(
             self.main_tab_frame,
             text="画像を選択...",
             command=self.select_tab_image,
-            width=15
+            width=12
         )
-        self.tab_file_btn.grid(row=3, column=1, sticky="w", padx=(0, 5))
+        self.tab_file_btn.grid(row=1, column=4, sticky="w", padx=(0, 5))
         self.tab_file_label = ttk.Label(
             self.main_tab_frame,
             textvariable=self.tab_file_label_var,
-            foreground="gray"
+            foreground="gray",
+            width=15
         )
-        self.tab_file_label.grid(row=3, column=2, sticky="w")
+        self.tab_file_label.grid(row=1, column=5, sticky="w")
 
-        # tab画像プレビュー
+        # プレビュー（main左、tab右）
+        self.main_preview_label = ttk.Label(self.main_tab_frame, text="")
+        self.main_preview_label.grid(row=2, column=0, columnspan=3, sticky="w", pady=(2, 0))
+
         self.tab_preview_label = ttk.Label(self.main_tab_frame, text="")
-        self.tab_preview_label.grid(row=4, column=1, columnspan=2, sticky="w", pady=(2, 0))
+        self.tab_preview_label.grid(row=2, column=3, columnspan=3, sticky="w", pady=(2, 0))
 
         self.zip_check = ttk.Checkbutton(
             self.process_frame,
@@ -226,7 +231,7 @@ class StampMakerGUI:
         self.zip_check.pack(anchor="w", pady=2)
 
         # 実行ボタンフレーム
-        self.button_frame = ttk.Frame(self.root, padding="10")
+        self.button_frame = ttk.Frame(self.root, padding="5")
 
         self.start_btn = ttk.Button(self.button_frame, text="すべて実行", command=self.start_processing, width=20)
         self.start_btn.pack(side="left", padx=(0, 10))
@@ -238,15 +243,15 @@ class StampMakerGUI:
         self.auto_prompter_btn.pack(side="left")
 
         # 進捗フレーム
-        self.progress_frame = ttk.LabelFrame(self.root, text="進捗状況", padding="10")
+        self.progress_frame = ttk.LabelFrame(self.root, text="進捗状況", padding="5")
 
         self.progress_bar = ttk.Progressbar(self.progress_frame, variable=self.progress_var, maximum=100)
         self.progress_bar.pack(fill="x", pady=(0, 10))
 
         # ログフレーム
-        self.log_frame = ttk.LabelFrame(self.root, text="ログ", padding="10")
+        self.log_frame = ttk.LabelFrame(self.root, text="ログ", padding="5")
 
-        self.log_text = tk.Text(self.log_frame, height=12, width=70, font=("Consolas", 9), wrap="word")
+        self.log_text = tk.Text(self.log_frame, height=6, width=70, font=("Consolas", 9), wrap="word")
         self.log_scrollbar = ttk.Scrollbar(self.log_frame, orient="vertical", command=self.log_text.yview)
         self.log_text.configure(yscrollcommand=self.log_scrollbar.set)
 
@@ -261,20 +266,23 @@ class StampMakerGUI:
 
     def setup_layout(self):
         """レイアウト設定"""
-        self.folder_frame.pack(fill="x", padx=10, pady=10)
-        self.folder_label.pack(fill="x", pady=(0, 10))
+        # 上部：フォルダ選択と設定を横並び
+        self.top_frame.pack(fill="x", padx=5, pady=5)
+
+        self.folder_frame.pack(side="left", fill="both", expand=True, padx=(0, 3))
+        self.folder_label.pack(fill="x", pady=(0, 5))
         self.browse_btn.pack()
 
-        self.settings_frame.pack(fill="x", padx=10, pady=10)
+        self.settings_frame.pack(side="left", fill="both", expand=True, padx=(3, 0))
         self.settings_frame.columnconfigure(1, weight=1)
 
-        self.process_frame.pack(fill="x", padx=10, pady=10)
+        self.process_frame.pack(fill="x", padx=5, pady=5)
 
-        self.button_frame.pack(fill="x", padx=10, pady=10)
+        self.button_frame.pack(fill="x", padx=5, pady=5)
 
-        self.progress_frame.pack(fill="x", padx=10, pady=10)
+        self.progress_frame.pack(fill="x", padx=5, pady=5)
 
-        self.log_frame.pack(fill="both", expand=True, padx=10, pady=10)
+        self.log_frame.pack(fill="both", expand=True, padx=5, pady=5)
 
         # ドラッグ＆ドロップ設定
         if HAS_DND:
@@ -536,15 +544,22 @@ class StampMakerGUI:
 
     def run_processing(self):
         """処理実行（別スレッド）"""
+        temp_folder = None
         try:
-            # 出力フォルダ作成
+            # 一時フォルダ作成（処理後に削除）
+            import tempfile
+            temp_folder = Path(tempfile.mkdtemp(prefix="line_stamp_"))
+
+            # 出力先フォルダ
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
             output_base = Path(self.output_var.get())
-            output_folder = output_base / f"stamp_{timestamp}"
-            output_folder.mkdir(parents=True, exist_ok=True)
+            output_base.mkdir(parents=True, exist_ok=True)
 
-            self.add_log(f"出力先: {output_folder}", "info")
-            self.logger.info(f"Processing started: {self.selected_folder} -> {output_folder}")
+            # ZIPファイルの最終出力パス
+            final_zip_path = output_base / f"line_stamp_{timestamp}.zip"
+
+            self.add_log(f"出力先: {output_base}", "info")
+            self.logger.info(f"Processing started: {self.selected_folder} -> {output_base}")
 
             total_steps = sum([
                 self.do_convert_var.get(),
@@ -555,7 +570,7 @@ class StampMakerGUI:
             current_step = 0
 
             # 変換後のPNG保存先（一時フォルダ）
-            converted_folder = output_folder / "converted"
+            converted_folder = temp_folder / "converted"
 
             # Step 1: webp→png変換
             if self.do_convert_var.get() and self.is_processing:
@@ -573,7 +588,7 @@ class StampMakerGUI:
                 self.progress_var.set((current_step / total_steps) * 100)
 
             # Step 2: リサイズ＋リネーム
-            resized_folder = output_folder / "resized"
+            resized_folder = temp_folder / "resized"
             if self.do_resize_var.get() and self.is_processing:
                 self.add_log("\n=== リサイズ＋リネーム ===", "info")
 
@@ -614,21 +629,23 @@ class StampMakerGUI:
             # Step 4: ZIP作成
             if self.do_zip_var.get() and self.is_processing:
                 self.add_log("\n=== ZIP作成 ===", "info")
-                zip_folder = output_folder / "zips"
-                zip_path = self.zip_creator.create_auto_named_zip(
+
+                # ZIPファイルを出力先フォルダ直下に作成
+                success = self.zip_creator.create_zip(
                     resized_folder,
-                    zip_folder,
+                    final_zip_path,
                     self.add_log
                 )
 
-                if not zip_path:
+                if not success:
                     self.add_log("ZIP作成に失敗しました", "error")
                     return
 
                 current_step += 1
                 self.progress_var.set((current_step / total_steps) * 100)
 
-            self.add_log("\n🎉 すべての処理が完了しました！", "success")
+            self.add_log(f"\n🎉 すべての処理が完了しました！", "success")
+            self.add_log(f"📦 出力ファイル: {final_zip_path.name}", "success")
             self.logger.info("Processing completed successfully")
 
         except Exception as e:
@@ -636,6 +653,14 @@ class StampMakerGUI:
             self.logger.error(f"Processing error: {e}", exc_info=True)
 
         finally:
+            # 一時フォルダのクリーンアップ
+            if temp_folder and temp_folder.exists():
+                try:
+                    shutil.rmtree(temp_folder)
+                    self.logger.info(f"Cleaned up temporary folder: {temp_folder}")
+                except Exception as e:
+                    self.logger.warning(f"Failed to cleanup temp folder: {e}")
+
             self.root.after(0, self.on_processing_finished)
 
     def on_processing_finished(self):
