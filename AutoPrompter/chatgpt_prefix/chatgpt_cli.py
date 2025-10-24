@@ -37,7 +37,19 @@ class OutputHandler:
         
         elif self.mode == "ndjson":
             # NDJSON モード: 全イベントを1行JSONで出力
-            print(json.dumps(event, ensure_ascii=False))
+            try:
+                print(json.dumps(event, ensure_ascii=False))
+            except UnicodeEncodeError as e:
+                # 特殊文字が原因のエラーを検出
+                error_char = e.object[e.start:e.end] if hasattr(e, 'object') else '不明'
+                error_event = {
+                    "type": "error",
+                    "error_type": "UnicodeEncodeError",
+                    "message": f"特殊文字エラー: '{error_char}' (cp932でエンコードできない文字が含まれています)",
+                    "detail": f"CSVファイル内の特殊文字（{error_char}など）を通常のASCII文字に変更してください",
+                    "encoding": e.encoding if hasattr(e, 'encoding') else 'cp932'
+                }
+                print(json.dumps(error_event, ensure_ascii=True))
         
         elif self.mode == "verbose":
             # 詳細モード: 人向けのテキスト出力
@@ -106,7 +118,12 @@ class OutputHandler:
             
             if step == "start":
                 print(f"\n--- 📝 Processing prompt {index}/{total} ---")
-                print(f"📄 Prompt: {event.get('prompt', '')}")
+                try:
+                    print(f"📄 Prompt: {event.get('prompt', '')}")
+                except UnicodeEncodeError as e:
+                    error_char = e.object[e.start:e.end] if hasattr(e, 'object') else '不明'
+                    print(f"📄 Prompt: [特殊文字エラー: '{error_char}' が含まれています]")
+                    print(f"⚠️  CSVファイル内の特殊文字（{error_char}など）を通常のASCII文字に変更してください")
             elif step == "activate":
                 print("🎯 ChatGPTウィンドウをアクティブ化")
             elif step == "click":
@@ -139,7 +156,12 @@ class OutputHandler:
             index = event.get("index", 0)
             total = event.get("total", 0)
             error_msg = event.get("error", "")
-            print(f"❌ エラー (step: {step}, {index}/{total}): {error_msg}")
+            try:
+                print(f"❌ エラー (step: {step}, {index}/{total}): {error_msg}")
+            except UnicodeEncodeError as e:
+                error_char = e.object[e.start:e.end] if hasattr(e, 'object') else '不明'
+                print(f"❌ エラー (step: {step}, {index}/{total}): [特殊文字エラー: '{error_char}' が含まれています]")
+                print(f"⚠️  CSVファイル内の特殊文字（{error_char}など）を通常のASCII文字に変更してください")
         
         elif event_type == "result":
             print(f"\n{'='*50}")
@@ -177,7 +199,15 @@ class OutputHandler:
                 "sent": self.final_result["sent"],
                 "failed": self.final_result["failed"]
             }
-            print(json.dumps(output, ensure_ascii=False))
+            try:
+                print(json.dumps(output, ensure_ascii=False))
+            except UnicodeEncodeError as e:
+                error_char = e.object[e.start:e.end] if hasattr(e, 'object') else '不明'
+                error_output = {
+                    "status": "error",
+                    "error": f"特殊文字エラー: '{error_char}' (cp932でエンコードできない文字が含まれています)"
+                }
+                print(json.dumps(error_output, ensure_ascii=True))
     
     def error(self, error_msg, error_type="error"):
         """エラー出力"""
@@ -189,15 +219,32 @@ class OutputHandler:
                 "failed": 0,
                 "error": str(error_msg)
             }
-            print(json.dumps(output, ensure_ascii=False))
+            try:
+                print(json.dumps(output, ensure_ascii=False))
+            except UnicodeEncodeError as e:
+                error_char = e.object[e.start:e.end] if hasattr(e, 'object') else '不明'
+                output["error"] = f"特殊文字エラー: '{error_char}' (cp932でエンコードできない文字が含まれています)"
+                print(json.dumps(output, ensure_ascii=True))
         elif self.mode == "ndjson":
-            print(json.dumps({
-                "type": "error",
-                "error_type": error_type,
-                "message": str(error_msg)
-            }, ensure_ascii=False))
+            try:
+                print(json.dumps({
+                    "type": "error",
+                    "error_type": error_type,
+                    "message": str(error_msg)
+                }, ensure_ascii=False))
+            except UnicodeEncodeError as e:
+                error_char = e.object[e.start:e.end] if hasattr(e, 'object') else '不明'
+                print(json.dumps({
+                    "type": "error",
+                    "error_type": "UnicodeEncodeError",
+                    "message": f"特殊文字エラー: '{error_char}' (cp932でエンコードできない文字が含まれています)"
+                }, ensure_ascii=True))
         else:
-            print(f"Error: {error_msg}", file=sys.stderr)
+            try:
+                print(f"Error: {error_msg}", file=sys.stderr)
+            except UnicodeEncodeError as e:
+                error_char = e.object[e.start:e.end] if hasattr(e, 'object') else '不明'
+                print(f"Error: 特殊文字エラー: '{error_char}' (cp932でエンコードできない文字が含まれています)", file=sys.stderr)
 
 
 def create_parser():

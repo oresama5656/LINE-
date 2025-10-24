@@ -181,7 +181,7 @@ class EventHandler:
                 self.gui.add_log("📊 処理対象: プロンプト", "info")
                 self.gui.add_log("⏰ 5秒後に自動処理を開始します...", "info")
                 self.gui.add_log("🚨 緊急停止: Ctrl+C または マウスを左上角に移動", "warning")
-            
+
             self.gui.add_log(f"⏳ {seconds_left}秒...", "info")
         else:
             # Non-interactive mode: simple countdown
@@ -328,12 +328,13 @@ class EventHandler:
     def _handle_error(self, event: Dict[str, Any]):
         """Error handling"""
         error = event.get("error", "Unknown error")
+        error_type = event.get("error_type", "")
         step = event.get("step", "unknown")
         index = event.get("index")
         total = event.get("total")
         attempts = event.get("attempts")
         max_retry = event.get("max_retry")
-        
+
         # Build error message
         if index and total:
             message = f"[{index}/{total}] Error in {step}: {error}"
@@ -341,8 +342,16 @@ class EventHandler:
                 message += f" (attempt {attempts}/{max_retry + 1})"
         else:
             message = f"Error in {step}: {error}"
-        
+
         self.gui.add_log(message, "error")
+
+        # 特殊文字エラーの場合は追加の説明を表示
+        if "UnicodeEncodeError" in error_type or "UnicodeEncodeError" in str(error) or "特殊文字" in str(error):
+            self.gui.add_log("⚠️  CSVファイル内にcp932でエンコードできない特殊文字（é、à、ñなど）が含まれています", "warning")
+            self.gui.add_log("💡 解決方法: CSVファイル内の特殊文字を通常のASCII文字に変更してください", "info")
+            detail = event.get("detail", "")
+            if detail:
+                self.gui.add_log(f"   {detail}", "info")
     
     def _handle_raw_output(self, event: Dict[str, Any]):
         """Raw output handling"""
