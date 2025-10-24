@@ -126,8 +126,8 @@ class ChatGPTCore:
             self.logger.error(f"CSV file not found: {csv_path}")
             raise InputError(f"CSV file not found: {csv_path}")
 
-        # 複数のエンコーディングを試行（標準csvモジュールを使用）
-        encodings = ['utf-8', 'cp932', 'shift-jis', 'utf-8-sig']
+        # 複数のエンコーディングを試行（UTF-8 with BOMを優先）
+        encodings = ['utf-8-sig', 'utf-8', 'cp932', 'shift-jis']
         rows = None
         successful_encoding = None
 
@@ -168,7 +168,8 @@ class ChatGPTCore:
 
         # CSV Modeでも列がない場合は警告を出してGUI Modeにフォールバック
         if use_csv_mode and not has_prefix and not has_suffix:
-            self.logger.warning("CSV Mode selected but no prefix/suffix columns found, using GUI defaults")
+            available_columns = list(rows[0].keys())
+            self.logger.warning(f"CSV Mode selected but 'prefix' and 'suffix' columns not found in CSV. Available columns: {available_columns}. Using GUI defaults instead.")
             use_csv_mode = False
 
         result = []
@@ -219,8 +220,8 @@ class ChatGPTCore:
     def remove_processed_prompt(self, csv_path, processed_prompt):
         """処理済みプロンプトをCSVファイルから削除（複数エンコーディング対応）"""
         try:
-            # 複数のエンコーディングを試行して読み込み
-            encodings = ['utf-8', 'cp932', 'shift-jis', 'utf-8-sig']
+            # 複数のエンコーディングを試行して読み込み（UTF-8 with BOMを優先）
+            encodings = ['utf-8-sig', 'utf-8', 'cp932', 'shift-jis']
             rows = None
             fieldnames = None
             successful_encoding = None
