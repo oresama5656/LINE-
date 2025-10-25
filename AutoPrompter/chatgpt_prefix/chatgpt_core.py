@@ -69,7 +69,8 @@ class ChatGPTCore:
         self.LONG_SLEEP = long_sleep if long_sleep is not None else self.LONG_SLEEP
 
         # PyAutoGUI設定
-        pyautogui.FAILSAFE = True
+        # pyautogui.FAILSAFE = True  # コメントアウト: マウスを隅に移動した時の強制停止を無効化（GUIのStopボタンで停止可能）
+        pyautogui.FAILSAFE = False
         pyautogui.PAUSE = 0.0  # カスタムスリープで制御するため無効化
     
     def _check_stop(self):
