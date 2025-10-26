@@ -266,8 +266,12 @@ class ChatGPTCore:
                     writer.writeheader()
                     writer.writerows(filtered_rows)
                 return True, original_count, new_count
-            return False, original_count, new_count
-        except Exception:
+            else:
+                # 削除対象が見つからなかった
+                self.logger.warning(f"Prompt not found in CSV for deletion: '{processed_prompt[:50]}...'")
+                return False, original_count, new_count
+        except Exception as e:
+            self.logger.error(f"Failed to remove processed prompt from CSV: {e}")
             return False, 0, 0
 
 

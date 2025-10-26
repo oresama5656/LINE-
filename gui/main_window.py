@@ -157,30 +157,37 @@ class StampMakerGUI:
         # 処理選択フレーム
         self.process_frame = ttk.LabelFrame(self.root, text="▶️ 処理内容選択", padding="5")
 
+        # チェックボックスとラベルを分離（テキスト部分のクリックを無効化）
+        convert_frame = ttk.Frame(self.process_frame)
+        convert_frame.pack(anchor="w", pady=2)
         self.convert_check = ttk.Checkbutton(
-            self.process_frame,
-            text="☑ webp→png変換（pngなら自動スキップ）",
+            convert_frame,
             variable=self.do_convert_var
         )
-        self.convert_check.pack(anchor="w", pady=2)
+        self.convert_check.pack(side="left")
+        ttk.Label(convert_frame, text="webp→png変換（pngなら自動スキップ）").pack(side="left", padx=(5, 0))
 
+        resize_frame = ttk.Frame(self.process_frame)
+        resize_frame.pack(anchor="w", pady=2)
         self.resize_check = ttk.Checkbutton(
-            self.process_frame,
-            text="☑ リサイズ＋リネーム",
+            resize_frame,
             variable=self.do_resize_var
         )
-        self.resize_check.pack(anchor="w", pady=2)
+        self.resize_check.pack(side="left")
+        ttk.Label(resize_frame, text="リサイズ＋リネーム").pack(side="left", padx=(5, 0))
 
         # main/tab選択フレーム
         self.main_tab_frame = ttk.LabelFrame(self.process_frame, text="", padding="5")
         self.main_tab_frame.pack(anchor="w", pady=5, fill="x")
 
+        main_tab_check_frame = ttk.Frame(self.main_tab_frame)
+        main_tab_check_frame.grid(row=0, column=0, columnspan=6, sticky="w", pady=(0, 5))
         self.main_tab_check = ttk.Checkbutton(
-            self.main_tab_frame,
-            text="☑ tab/main画像を作成",
+            main_tab_check_frame,
             variable=self.do_main_tab_var
         )
-        self.main_tab_check.grid(row=0, column=0, columnspan=6, sticky="w", pady=(0, 5))
+        self.main_tab_check.pack(side="left")
+        ttk.Label(main_tab_check_frame, text="tab/main画像を作成").pack(side="left", padx=(5, 0))
 
         # main画像選択（左側）
         ttk.Label(self.main_tab_frame, text="main画像:").grid(row=1, column=0, sticky="w", padx=(0, 5))
@@ -223,12 +230,14 @@ class StampMakerGUI:
         self.tab_preview_label = ttk.Label(self.main_tab_frame, text="")
         self.tab_preview_label.grid(row=2, column=3, columnspan=3, sticky="w", pady=(2, 0))
 
+        zip_frame = ttk.Frame(self.process_frame)
+        zip_frame.pack(anchor="w", pady=2)
         self.zip_check = ttk.Checkbutton(
-            self.process_frame,
-            text="☑ ZIP作成（LINEスタンプ用）",
+            zip_frame,
             variable=self.do_zip_var
         )
-        self.zip_check.pack(anchor="w", pady=2)
+        self.zip_check.pack(side="left")
+        ttk.Label(zip_frame, text="ZIP作成（LINEスタンプ用）").pack(side="left", padx=(5, 0))
 
         # 実行ボタンフレーム
         self.button_frame = ttk.Frame(self.root, padding="5")

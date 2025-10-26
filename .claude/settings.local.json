@@ -4,7 +4,10 @@
       "Bash(python:*)",
       "Bash(powershell -Command \"Get-Content ''C:\\Users\\PHARMY\\Desktop\\aizawa_git\\LINE-\\1024.csv'' -Encoding Byte -TotalCount 20 | ForEach-Object { ''{0:X2}'' -f $_}\")",
       "Bash(timeout 5 python:*)",
-      "Bash(timeout 8 python:*)"
+      "Bash(timeout 8 python:*)",
+      "Bash(cat:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
