@@ -77,6 +77,27 @@ class ChatGPTCore:
         """緊急停止チェック"""
         if self.stop_flag.is_set():
             raise KeyboardInterrupt("Process stopped by user")
+
+    def _get_window_title(self, hwnd):
+        """ウィンドウハンドルからウィンドウタイトルを取得（cp932非対応文字を安全に処理）"""
+        try:
+            if hwnd:
+                title = win32gui.GetWindowText(hwnd)
+                if not title:
+                    return f"<No Title> (Handle: {hwnd})"
+
+                # cp932でエンコードできない文字を安全に処理
+                try:
+                    # cp932でエンコードできるか確認
+                    title.encode('cp932')
+                    return title
+                except UnicodeEncodeError:
+                    # エンコードできない文字を '?' に置き換え
+                    safe_title = title.encode('cp932', errors='replace').decode('cp932')
+                    return safe_title
+            return "<Invalid Handle>"
+        except Exception as e:
+            return f"<Error getting title: {e}>"
     
     def find_chatgpt_window(self):
         """ChatGPTウィンドウを検索してハンドルを取得（座標記録時に実際のウィンドウを記録）"""
@@ -86,20 +107,128 @@ class ChatGPTCore:
         return "Active window (will be captured during coordinate setup)"
     
     def activate_chatgpt_window(self):
-        """ChatGPTウィンドウをアクティブ化（座標記録時に記録されたウィンドウを使用）"""
+        """ChatGPTウィンドウをアクティブ化（座標記録時に記録されたウィンドウを使用）
+
+        複数の方法でウィンドウアクティブ化を試行し、他のウィンドウで作業中でも強制的にフォーカスを奪取
+        """
         if not self.chatgpt_window_handle:
             self.logger.error("ChatGPT window handle not captured yet")
             return False
 
-        try:
-            self.original_window_handle = win32gui.GetForegroundWindow()
-            win32gui.ShowWindow(self.chatgpt_window_handle, win32con.SW_RESTORE)
-            win32gui.SetForegroundWindow(self.chatgpt_window_handle)
-            time.sleep(self.SHORT_SLEEP)  # ウィンドウ切り替え後の待機
-            return True
-        except Exception as e:
-            self.logger.error(f"Failed to activate window: {e}")
-            return False
+        # 現在のフォアグラウンドウィンドウを記録
+        self.original_window_handle = win32gui.GetForegroundWindow()
+        current_title = self._get_window_title(self.original_window_handle)
+        target_title = self._get_window_title(self.chatgpt_window_handle)
+
+        self.logger.debug(f"Attempting to activate window: '{target_title}'")
+        self.logger.debug(f"Current foreground window: '{current_title}'")
+
+        # 最大3回リトライ
+        max_attempts = 3
+        for attempt in range(max_attempts):
+            try:
+                if attempt > 0:
+                    self.logger.debug(f"Retry attempt {attempt + 1}/{max_attempts}")
+                    time.sleep(1.0)  # リトライ前に待機（0.5秒→1.0秒に延長）
+
+                # 方法1: ウィンドウを表示状態にする（隠れている場合に備えて）
+                win32gui.ShowWindow(self.chatgpt_window_handle, win32con.SW_SHOW)
+                time.sleep(0.2)
+
+                # 方法2: ウィンドウを最小化状態から復元
+                win32gui.ShowWindow(self.chatgpt_window_handle, win32con.SW_RESTORE)
+                time.sleep(0.2)
+
+                # 方法3: Z-orderで最前面に持ってくる
+                win32gui.BringWindowToTop(self.chatgpt_window_handle)
+                time.sleep(0.2)
+
+                # 方法4: 最前面ウィンドウとして強制設定
+                try:
+                    win32gui.SetWindowPos(
+                        self.chatgpt_window_handle,
+                        win32con.HWND_TOPMOST,  # HWND_TOP → HWND_TOPMOSTに変更（常に最前面）
+                        0, 0, 0, 0,
+                        win32con.SWP_NOMOVE | win32con.SWP_NOSIZE | win32con.SWP_SHOWWINDOW
+                    )
+                    time.sleep(0.3)
+
+                    # HWND_TOPMOSTを解除して通常の最前面ウィンドウに戻す
+                    win32gui.SetWindowPos(
+                        self.chatgpt_window_handle,
+                        win32con.HWND_NOTOPMOST,
+                        0, 0, 0, 0,
+                        win32con.SWP_NOMOVE | win32con.SWP_NOSIZE | win32con.SWP_SHOWWINDOW
+                    )
+                    time.sleep(0.2)
+                except Exception as e:
+                    self.logger.debug(f"SetWindowPos failed: {e}")
+
+                # 方法5: Alt押下でフォーカス制限を解除
+                # Windowsのフォーカス制限を回避するために、Altキーを押して離す
+                try:
+                    import win32api
+                    import win32con as wcon
+                    # Altキーを押す
+                    win32api.keybd_event(wcon.VK_MENU, 0, 0, 0)
+                    time.sleep(0.05)
+                    # Altキーを離す
+                    win32api.keybd_event(wcon.VK_MENU, 0, win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(0.1)
+                except Exception as e:
+                    self.logger.debug(f"Alt key simulation failed: {e}")
+
+                # 方法6: フォアグラウンドウィンドウに設定
+                # AttachThreadInputを使ってフォーカスを強制的に奪取
+                try:
+                    import win32process
+                    # 現在のスレッドIDを取得
+                    current_thread_id = win32process.GetCurrentThreadId()
+                    # ターゲットウィンドウのスレッドIDを取得
+                    target_thread_id = win32process.GetWindowThreadProcessId(self.chatgpt_window_handle)[0]
+
+                    # スレッドを接続
+                    if current_thread_id != target_thread_id:
+                        win32process.AttachThreadInput(current_thread_id, target_thread_id, True)
+                        time.sleep(0.1)
+
+                    # フォアグラウンドウィンドウに設定
+                    win32gui.SetForegroundWindow(self.chatgpt_window_handle)
+                    time.sleep(0.1)
+
+                    # スレッドを切断
+                    if current_thread_id != target_thread_id:
+                        win32process.AttachThreadInput(current_thread_id, target_thread_id, False)
+                except Exception as e:
+                    # AttachThreadInputが失敗した場合は通常の方法で試行
+                    self.logger.debug(f"AttachThreadInput failed, using standard method: {e}")
+                    try:
+                        win32gui.SetForegroundWindow(self.chatgpt_window_handle)
+                    except Exception as e2:
+                        self.logger.debug(f"SetForegroundWindow also failed: {e2}")
+
+                time.sleep(self.LONG_SLEEP)  # ウィンドウ切り替え後の待機（SHORT_SLEEP→LONG_SLEEPに変更）
+
+                # アクティブ化後の確認
+                activated_handle = win32gui.GetForegroundWindow()
+                activated_title = self._get_window_title(activated_handle)
+
+                if activated_handle == self.chatgpt_window_handle:
+                    self.logger.debug(f"Successfully activated window: '{target_title}' (attempt {attempt + 1})")
+                    return True
+                else:
+                    self.logger.warning(f"Attempt {attempt + 1}: Window activation incomplete. Target: '{target_title}', Actual: '{activated_title}'")
+
+            except Exception as e:
+                self.logger.warning(f"Attempt {attempt + 1} failed: {e}")
+                if attempt == max_attempts - 1:
+                    # 最後の試行でも失敗
+                    self.logger.error(f"Failed to activate window '{target_title}' after {max_attempts} attempts: {e}")
+                    return False
+
+        # 全ての試行が失敗
+        self.logger.error(f"Failed to activate window '{target_title}' after {max_attempts} attempts")
+        return False
     
     def restore_original_window(self):
         """元のアクティブウィンドウに戻す"""
@@ -383,11 +512,19 @@ def iter_process_prompts(csv_path, wait=60, profile_dir=None, pause_for_login=Fa
             core.input_x, core.input_y = pyautogui.position()
             core.chatgpt_window_handle = win32gui.GetForegroundWindow()
 
+            # 取得したウィンドウ情報をログに出力
+            window_title = core._get_window_title(core.chatgpt_window_handle)
+            if logger:
+                logger.info(f"Target window captured: '{window_title}' (Handle: {core.chatgpt_window_handle})")
+                logger.info(f"Mouse position: ({core.input_x}, {core.input_y})")
+
             yield {
                 "type": "coordinate",
                 "x": core.input_x,
                 "y": core.input_y,
-                "window_captured": True
+                "window_captured": True,
+                "window_title": window_title,
+                "window_handle": core.chatgpt_window_handle
             }
         
         # フェーズ4: 処理準備

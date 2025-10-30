@@ -144,17 +144,22 @@ class EventHandler:
         x = event.get("x", 0)
         y = event.get("y", 0)
         dry_run = event.get("dry_run", False)
-        
+        window_title = event.get("window_title", "Unknown")
+        window_handle = event.get("window_handle", "Unknown")
+
         if self.is_interactive:
             if dry_run:
                 self.gui.add_log(f"🔍 [DRY-RUN] シミュレーション座標: ({x}, {y})", "info")
             else:
                 self.gui.add_log(f"✅ 座標記録完了: ({x}, {y})", "info")
-                self.gui.add_log("📝 この座標をSoraの入力欄として使用します", "info")
+                self.gui.add_log(f"🎯 ターゲットウィンドウ: '{window_title}'", "success")
+                self.gui.add_log(f"📝 この座標とウィンドウを使用します", "info")
         else:
             message = f"Coordinate set: ({x}, {y})"
             if dry_run:
                 message = f"[DRY-RUN] Simulated coordinate: ({x}, {y})"
+            else:
+                message = f"Coordinate set: ({x}, {y}), Target window: '{window_title}'"
             self.gui.add_log(message, "info")
     
     def _handle_countdown(self, event: Dict[str, Any]):
