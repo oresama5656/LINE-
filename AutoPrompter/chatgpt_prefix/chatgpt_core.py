@@ -725,10 +725,10 @@ def iter_process_prompts(csv_path, wait=60, profile_dir=None, pause_for_login=Fa
                 remaining = core.wait
                 while remaining > 0:
                     core._check_stop()
-                    
+
                     mins = remaining // 60
                     secs = remaining % 60
-                    
+
                     yield {
                         "type": "wait",
                         "seconds_left": remaining,
@@ -737,7 +737,7 @@ def iter_process_prompts(csv_path, wait=60, profile_dir=None, pause_for_login=Fa
                         "next_index": i + 1,
                         "total": total_prompts
                     }
-                    
+
                     time.sleep(min(10, remaining))  # 10秒または残り時間
                     remaining -= min(10, remaining)
         
@@ -749,10 +749,10 @@ def iter_process_prompts(csv_path, wait=60, profile_dir=None, pause_for_login=Fa
             remaining = core.wait
             while remaining > 0:
                 core._check_stop()
-                
+
                 mins = remaining // 60
                 secs = remaining % 60
-                
+
                 yield {
                     "type": "wait",
                     "seconds_left": remaining,
@@ -760,7 +760,7 @@ def iter_process_prompts(csv_path, wait=60, profile_dir=None, pause_for_login=Fa
                     "seconds": secs,
                     "final": True
                 }
-                
+
                 time.sleep(min(10, remaining))
                 remaining -= min(10, remaining)
         

@@ -25,7 +25,7 @@ class ChatGPTGUIWindow:
         
         # Window setup
         self.root.title("ChatGPT GUI Auto - Control Panel")
-        self.root.geometry("800x900")  # Increased from 600x500 to show all UI elements
+        self.root.geometry("480x600")  # Compacted: 800x900 -> 480x600 (40% width cut, height reduced)
         self.root.resizable(True, True)
         
         # State management
@@ -48,89 +48,99 @@ class ChatGPTGUIWindow:
         # Callbacks
         self.on_start_callback: Optional[Callable] = None
         self.on_stop_callback: Optional[Callable] = None
-        
+
         # Create GUI
         self.create_widgets()
         self.setup_layout()
         
     def create_widgets(self):
         """Create GUI widgets"""
-        # File frame
-        self.file_frame = ttk.LabelFrame(self.root, text="CSV File", padding="10")
-        self.csv_entry = ttk.Entry(self.file_frame, textvariable=self.csv_var, width=50)
-        self.browse_btn = ttk.Button(self.file_frame, text="Browse...", command=self.browse_csv)
-        
-        # Config frame
-        self.config_frame = ttk.LabelFrame(self.root, text="Settings", padding="10")
-        
-        ttk.Label(self.config_frame, text="Wait (seconds):").grid(row=0, column=0, sticky="w", padx=(0,10))
-        self.wait_entry = ttk.Entry(self.config_frame, textvariable=self.wait_var, width=10)
-        self.wait_entry.grid(row=0, column=1, sticky="w")
-        
-        self.dry_run_check = ttk.Checkbutton(self.config_frame, text="Dry Run", variable=self.dry_run_var)
-        self.dry_run_check.grid(row=1, column=0, sticky="w", pady=5)
-        
-        self.interactive_check = ttk.Checkbutton(self.config_frame, text="Interactive", variable=self.interactive_var)
-        self.interactive_check.grid(row=1, column=1, sticky="w", pady=5)
-        
-        ttk.Label(self.config_frame, text="Max Items:").grid(row=2, column=0, sticky="w", padx=(0,10))
-        self.max_items_entry = ttk.Entry(self.config_frame, textvariable=self.max_items_var, width=10)
-        self.max_items_entry.grid(row=2, column=1, sticky="w")
-        
-        ttk.Label(self.config_frame, text="Retry:").grid(row=2, column=2, sticky="w", padx=(20,10))
-        self.retry_entry = ttk.Entry(self.config_frame, textvariable=self.retry_var, width=10)
-        self.retry_entry.grid(row=2, column=3, sticky="w")
+        # CSV File frame - 1行目
+        self.csv_frame = ttk.Frame(self.root, padding="5")
+        ttk.Label(self.csv_frame, text="CSV:").pack(side="left", padx=(0,5))
+        self.csv_entry = ttk.Entry(self.csv_frame, textvariable=self.csv_var, width=42)
+        self.csv_entry.pack(side="left", fill="x", expand=True, padx=(0,5))
+        self.browse_btn = ttk.Button(self.csv_frame, text="参照", command=self.browse_csv, width=4)
+        self.browse_btn.pack(side="left")
 
-        # 操作速度設定
-        ttk.Label(self.config_frame, text="操作速度:").grid(row=2, column=4, sticky="w", padx=(20,10))
-        self.speed_combo = ttk.Combobox(self.config_frame, textvariable=self.speed_var, width=8, state="readonly")
+        # Settings frame - 2行に分ける
+        self.settings_frame = ttk.LabelFrame(self.root, text="Settings", padding="5")
+
+        # Settings 1行目
+        self.settings_row1 = ttk.Frame(self.settings_frame)
+        ttk.Label(self.settings_row1, text="Wait:").pack(side="left", padx=(0,3))
+        self.wait_entry = ttk.Entry(self.settings_row1, textvariable=self.wait_var, width=5)
+        self.wait_entry.pack(side="left", padx=(0,12))
+
+        self.dry_run_check = ttk.Checkbutton(self.settings_row1, text="Dry Run", variable=self.dry_run_var)
+        self.dry_run_check.pack(side="left", padx=(0,12))
+
+        self.interactive_check = ttk.Checkbutton(self.settings_row1, text="Interactive", variable=self.interactive_var)
+        self.interactive_check.pack(side="left", padx=(0,12))
+
+        ttk.Label(self.settings_row1, text="Max Items:").pack(side="left", padx=(0,3))
+        self.max_items_entry = ttk.Entry(self.settings_row1, textvariable=self.max_items_var, width=5)
+        self.max_items_entry.pack(side="left")
+
+        # Settings 2行目
+        self.settings_row2 = ttk.Frame(self.settings_frame)
+        ttk.Label(self.settings_row2, text="Retry:").pack(side="left", padx=(0,3))
+        self.retry_entry = ttk.Entry(self.settings_row2, textvariable=self.retry_var, width=5)
+        self.retry_entry.pack(side="left", padx=(0,12))
+
+        ttk.Label(self.settings_row2, text="Speed:").pack(side="left", padx=(0,3))
+        self.speed_combo = ttk.Combobox(self.settings_row2, textvariable=self.speed_var, width=6, state="readonly")
         self.speed_combo['values'] = ('高速', '中速', '低速')
-        self.speed_combo.grid(row=2, column=5, sticky="w")
+        self.speed_combo.pack(side="left", padx=(0,12))
         self.speed_combo.bind('<<ComboboxSelected>>', self.update_speed_description)
 
-        # 速度説明ラベル
-        self.speed_desc_label = ttk.Label(self.config_frame, text="短: 0.2秒 / 長: 0.5秒", foreground="gray")
-        self.speed_desc_label.grid(row=3, column=4, columnspan=2, sticky="w", padx=(20,0))
+        ttk.Label(self.settings_row2, text="Mode:").pack(side="left", padx=(0,5))
+        self.gui_mode_radio = ttk.Radiobutton(self.settings_row2, text="GUI", variable=self.mode_var, value="gui", command=self.on_mode_changed)
+        self.gui_mode_radio.pack(side="left", padx=(0,5))
+        self.csv_mode_radio = ttk.Radiobutton(self.settings_row2, text="CSV", variable=self.mode_var, value="csv", command=self.on_mode_changed)
+        self.csv_mode_radio.pack(side="left")
 
-        # モード選択（CSV Mode / GUI Mode）
-        ttk.Label(self.config_frame, text="Mode:").grid(row=3, column=0, sticky="w", padx=(0,10))
-        self.gui_mode_radio = ttk.Radiobutton(self.config_frame, text="GUI Mode", variable=self.mode_var, value="gui", command=self.on_mode_changed)
-        self.gui_mode_radio.grid(row=3, column=1, sticky="w")
-        self.csv_mode_radio = ttk.Radiobutton(self.config_frame, text="CSV Mode", variable=self.mode_var, value="csv", command=self.on_mode_changed)
-        self.csv_mode_radio.grid(row=3, column=2, sticky="w")
+        # Prefix と Suffix を1行にまとめる
+        self.prefix_suffix_frame = ttk.Frame(self.root, padding="5")
 
-        # Prefix frame (multi-line text area)
-        self.prefix_frame = ttk.LabelFrame(self.config_frame, text="Prefix", padding="5")
-        self.prefix_frame.grid(row=4, column=0, columnspan=4, sticky="ew", pady=(10,0))
-        self.prefix_text = tk.Text(self.prefix_frame, height=4, width=70, font=("Consolas", 9), wrap="word")
+        # Prefix (左半分)
+        self.prefix_frame = ttk.LabelFrame(self.prefix_suffix_frame, text="Prefix", padding="3")
+        self.prefix_text = tk.Text(self.prefix_frame, height=2, width=24, font=("Consolas", 9), wrap="word")
         self.prefix_scrollbar = ttk.Scrollbar(self.prefix_frame, orient="vertical", command=self.prefix_text.yview)
         self.prefix_text.configure(yscrollcommand=self.prefix_scrollbar.set)
         self.prefix_text.pack(side="left", fill="both", expand=True)
         self.prefix_scrollbar.pack(side="right", fill="y")
+        self.prefix_frame.pack(side="left", fill="both", expand=True, padx=(0,5))
 
-        # Suffix frame (multi-line text area)
-        self.suffix_frame = ttk.LabelFrame(self.config_frame, text="Suffix", padding="5")
-        self.suffix_frame.grid(row=5, column=0, columnspan=4, sticky="ew", pady=(10,0))
-        self.suffix_text = tk.Text(self.suffix_frame, height=4, width=70, font=("Consolas", 9), wrap="word")
+        # Suffix (右半分)
+        self.suffix_frame = ttk.LabelFrame(self.prefix_suffix_frame, text="Suffix", padding="3")
+        self.suffix_text = tk.Text(self.suffix_frame, height=2, width=24, font=("Consolas", 9), wrap="word")
         self.suffix_scrollbar = ttk.Scrollbar(self.suffix_frame, orient="vertical", command=self.suffix_text.yview)
         self.suffix_text.configure(yscrollcommand=self.suffix_scrollbar.set)
         self.suffix_text.pack(side="left", fill="both", expand=True)
         self.suffix_scrollbar.pack(side="right", fill="y")
+        self.suffix_frame.pack(side="left", fill="both", expand=True)
 
-        # Control frame
-        self.control_frame = ttk.Frame(self.root)
-        self.start_btn = ttk.Button(self.control_frame, text="Start", command=self.on_start)
-        self.stop_btn = ttk.Button(self.control_frame, text="Stop", command=self.on_stop, state="disabled")
-        self.clear_btn = ttk.Button(self.control_frame, text="Clear Log", command=self.clear_log)
-        
-        # Progress frame
-        self.progress_frame = ttk.LabelFrame(self.root, text="Progress", padding="10")
-        self.progress_bar = ttk.Progressbar(self.progress_frame, variable=self.progress_var, maximum=100)
-        self.status_label = ttk.Label(self.progress_frame, textvariable=self.status_var)
-        
-        # Log frame
-        self.log_frame = ttk.LabelFrame(self.root, text="Log Output", padding="10")
-        self.log_text = tk.Text(self.log_frame, height=5, width=70, font=("Consolas", 9))
+        # Control frame - ボタンとプログレスバー
+        self.control_frame = ttk.Frame(self.root, padding="5")
+
+        # ボタン（1行目）
+        self.button_row = ttk.Frame(self.control_frame)
+        self.start_btn = ttk.Button(self.button_row, text="Start", command=self.on_start, width=10)
+        self.stop_btn = ttk.Button(self.button_row, text="Stop", command=self.on_stop, state="disabled", width=10)
+        self.clear_btn = ttk.Button(self.button_row, text="Clear Log", command=self.clear_log, width=10)
+
+        # プログレスバー（2行目）
+        self.progress_row = ttk.Frame(self.control_frame)
+        self.progress_bar = ttk.Progressbar(self.progress_row, variable=self.progress_var, maximum=100, length=300)
+
+        # ステータス（3行目）
+        self.status_row = ttk.Frame(self.control_frame)
+        self.status_label = ttk.Label(self.status_row, textvariable=self.status_var, width=60)
+
+        # Log frame - ログ行数を15行に調整
+        self.log_frame = ttk.LabelFrame(self.root, text="Log", padding="5")
+        self.log_text = tk.Text(self.log_frame, height=15, width=55, font=("Consolas", 8))
         self.log_scrollbar = ttk.Scrollbar(self.log_frame, orient="vertical", command=self.log_text.yview)
         self.log_text.configure(yscrollcommand=self.log_scrollbar.set)
         
@@ -143,27 +153,30 @@ class ChatGPTGUIWindow:
         
     def setup_layout(self):
         """Setup layout"""
-        # File selection
-        self.file_frame.pack(fill="x", padx=10, pady=5)
-        self.csv_entry.pack(side="left", fill="x", expand=True, padx=(0,10))
-        self.browse_btn.pack(side="right")
-        
-        # Settings
-        self.config_frame.pack(fill="x", padx=10, pady=5)
-        
-        # Control buttons
-        self.control_frame.pack(fill="x", padx=10, pady=5)
-        self.start_btn.pack(side="left", padx=(0,10))
-        self.stop_btn.pack(side="left", padx=(0,10))
+        # CSV frame - 1行目
+        self.csv_frame.pack(fill="x", padx=3, pady=3)
+
+        # Settings frame - 2行目・3行目
+        self.settings_frame.pack(fill="x", padx=3, pady=3)
+        self.settings_row1.pack(fill="x", pady=(0,3))
+        self.settings_row2.pack(fill="x")
+
+        # Prefix & Suffix - 4行目
+        self.prefix_suffix_frame.pack(fill="x", padx=3, pady=3)
+
+        # Control frame - 5行目（ボタン）、6行目（プログレスバー）、7行目（ステータス）
+        self.control_frame.pack(fill="x", padx=3, pady=3)
+        self.button_row.pack(fill="x", pady=(0,3))
+        self.start_btn.pack(side="left", padx=(0,5))
+        self.stop_btn.pack(side="left", padx=(0,5))
         self.clear_btn.pack(side="left")
-        
-        # Progress
-        self.progress_frame.pack(fill="x", padx=10, pady=5)
-        self.progress_bar.pack(fill="x", pady=(0,5))
-        self.status_label.pack(anchor="w")
-        
-        # Log
-        self.log_frame.pack(fill="both", expand=True, padx=10, pady=5)
+        self.progress_row.pack(fill="x", pady=(0,2))
+        self.progress_bar.pack(fill="x", expand=True)
+        self.status_row.pack(fill="x")
+        self.status_label.pack(fill="x", expand=True)
+
+        # Log - 8行目
+        self.log_frame.pack(fill="both", expand=True, padx=3, pady=3)
         self.log_text.pack(side="left", fill="both", expand=True)
         self.log_scrollbar.pack(side="right", fill="y")
     
@@ -176,6 +189,7 @@ class ChatGPTGUIWindow:
         )
         if filename:
             self.csv_var.set(filename)
+
 
     def update_speed_description(self, event=None):
         """Update speed description label when speed selection changes"""
@@ -259,25 +273,25 @@ class ChatGPTGUIWindow:
         """Start button clicked"""
         if not self.validate_settings():
             return
-        
+
         self.is_running = True
         self.start_btn.configure(state="disabled")
         self.stop_btn.configure(state="normal")
         self.status_var.set("Starting...")
-        
+
         if self.on_start_callback:
             self.on_start_callback(self.get_settings())
-    
+
     def on_stop(self):
         """Stop button clicked"""
         self.is_running = False
         self.start_btn.configure(state="normal")
         self.stop_btn.configure(state="disabled")
         self.status_var.set("Stopping...")
-        
+
         if self.on_stop_callback:
             self.on_stop_callback()
-    
+
     def set_callbacks(self, on_start: Callable, on_stop: Callable):
         """Set callback functions"""
         self.on_start_callback = on_start
