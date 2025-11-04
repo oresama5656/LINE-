@@ -1,9 +1,0 @@
-2025-10-22 23:44:43 - stamp_maker - INFO - GUI initialized
-2025-10-22 23:45:15 - stamp_maker - INFO - Processing started: C:\Users\oresa\Downloads\スタンプ\動物あと３つ -> C:\Users\oresa\Downloads\スタンプ\stamp_20251022_234515
-2025-10-22 23:45:15 - stamp_maker - INFO - Copied 37 WebP files to line_stamp_maker
-2025-10-22 23:45:19 - stamp_maker - INFO - Converted 37 files successfully
-2025-10-22 23:45:19 - stamp_maker - INFO - Copied 74 files to base folder
-2025-10-22 23:45:21 - stamp_maker - INFO - Resized 37 files successfully
-2025-10-22 23:45:22 - stamp_maker - ERROR - main.png not found in line_stamp_maker\output
-2025-10-22 23:45:22 - stamp_maker - ERROR - tab.png not found in line_stamp_maker\output
-2025-10-22 23:45:22 - stamp_maker - ERROR - Failed to create main.png and tab.png
