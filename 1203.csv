@@ -1,590 +1,217 @@
-prompt,prefix,suffix,title
-"wearing a soft pink kimono with subtle floral patterns, gentle smile, text color white, text""了解です""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.8 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+prompt,prefix,suffix,title,done
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, giving a small polite bow, painful cold expression, theme:「おはようございます」","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.87 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a sky-blue kimono, raising her hand lightly, text color white, text""はーい""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.9 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered prominently.
 
-#",,
-"wearing a pale lavender kimono, bright approving smile, text color white, text""いいですね""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.10 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, pumping his fist with determination, painful cold expression, theme:「今日もがんばろう」","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.88 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a navy kimono with gold obi, polite bow, text color white, text""よろしくお願いします""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.11 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered prominently.
 
-#",,
-"wearing a warm cream kimono in morning light, soft greeting smile, text color white, text""おはようございます""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.12 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, waving gently, cheerful smile despite cold, theme:「こんにちは」","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.89 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a deep indigo kimono, lantern-lit evening expression, text color white, text""こんばんは""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.13 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered prominently.
 
-#",,
-"wearing a winter gray kimono with snowflake motifs, puffing warm breath, text color white, text""寒いですねー""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.14 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, giving a trembling thumbs-up, pained cold expression, theme:「OK」","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.90 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a burgundy kimono, gentle tired smile, text color white, text""お疲れ様です""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.15 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered prominently.
 
-#",,
-"wearing a beige winter kimono and holding a warm drink, text color white, text""あたたくして過ごしてね""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.16 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, shivering hard with freezing painful expression, icy breath swirling, theme:「了解です」","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.91 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a navy night-kimono, sleepy gentle eyes, text color white, text""おやすみなさい""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.17 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered prominently.
 
-#",,
-"wearing a rose-pink kimono, warm grateful smile, text color white, text""いつもありがとう""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.18 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, trembling while raising hand in approval, freezing painful expression, theme:「いいですね」","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.92 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a soft pastel kimono, bowing deeply, text color white, text""ぺこり""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.19 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered prominently.
 
-#",,
-"wearing a sage green kimono, polite request gesture, text color white, text""お願いします""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.20 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, hands together in gratitude while visibly shivering, painful cold expression, theme:「いつもありがとう」","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.93 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a coral-red kimono, joyful excited smile, text color white, text""わーいやったー""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.21 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered prominently.
 
-#",,
-"wearing a pale mint kimono, gentle worried look, text color white, text""無理しないでね""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.22 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, hugging himself gently to keep warm, freezing painful expression, theme:「ゆっくりしてください」","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.94 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a winter-white kimono with medical motif ribbon, caring expression, text color white, text""風邪に気を付けましょう""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.23 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered prominently.
 
-#",,
-"wearing a warm brown kimono and scarf, holding heat pack, text color white, text""身体はあたためてね""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.24 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, trying to pose confidently while shaking from cold, painful expression, theme:「いい感じ！」","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.95 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing an orange kimono near a steaming pot, warm smile, text color white, text""温かいものを食べよう""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.25 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered prominently.
 
-#",,
-"wearing a frost-blue kimono, soft worried eyes, text color white, text""寒さにお気をつけて""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.26 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, placing hand on chest with freezing painful expression, white breath, theme:「助かります」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.96 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing an icy-white kimono with wind-blown hair, shocked cold face, text color white, text""寒すぎるー""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.27 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#",":Text overlay (centered, bold, safe zone). winter
 
-#",,
-"wearing a plum-purple kimono, nodding softly, text color white, text""うんうん""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.28 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, looking up gratefully while teeth chattering, theme:「感謝」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.97 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a festive red kimono, holding a small calendar, text color white, text""楽しみにしてます""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.29 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#",":Text overlay (centered, bold, safe zone). winter
 
-#",,
-"wearing a pastel gold kimono, sparkling excited smile, text color white, text""わくわく""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.30 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, bowing politely while violently shivering, painful expression, theme:「よろしくお願いします」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.98 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a Christmas-red kimono and Santa hat, bright holiday lights, text color white, text""Merry Christmas""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.31 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#",":Text (bold, safe zone). winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, wiping brow with stiff frozen hand, exhausted cold expression, theme:「おつかれさまです」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.99 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a white-and-red Christmas kimono, soft holiday glow, text color white, text""Merry Xmas""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.32 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#",":Text (bold, safe zone). winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, pointing forward encouragingly while freezing, painful expression, theme:「いつでも言ってください」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.100 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a holly-green kimono holding a wrapped gift, text color white, text""プレゼントありがとう""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.33 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow and blue sky
 
-#",,
-"wearing a winter red kimono, peeking into a gift box, text color white, text""クリスマスプレゼントかな？""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.34 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, raising fist weakly with freezing painful expression, theme:「最高」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.101 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a snowy white kimono with gold ribbon obi, warm holiday smile, text color white, text""ステキなクリスマスになりますように""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.35 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. winter
 
-#",,
-"wearing a champagne-gold kimono, soft reflective smile, text color white, text""今年もお世話になりました""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.36 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, giving a strong thumbs-up while shaking from cold, painful expression, theme:「GOOD」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.102 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a red-and-black festive kimono, warm polite bow, text color white, text""来年もよろしくお願いします""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.37 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow
 
-#",,
-"wearing a traditional white kimono with gold obi, gentle bow, text color white, text""よいお年をお迎えください""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.38 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, tiny hop of joy but clearly freezing, painful expression, theme:「わーい」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.103 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a vivid red New Year kimono with plum blossoms, bright smile, text color white, text""あけましておめでとうございます""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.39 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow and blue sky
 
-#",,
-"wearing a cheerful pink New Year kimono, joyful grin, text color white, text""あけおめ""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.40 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, waving goodbye warmly while freezing, painful expression, theme:「いってらっしゃい気を付けてね」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.104 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a sky-blue kimono, hands clasped with hope, text color white, text""いいことたくさんありますように""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.41 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. winter
 
-#",,
-"wearing a pastel peach kimono, dreamy hopeful eyes, text color white, text""幸せいっぱいの1年になりますように""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.42 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, welcoming gesture with shivering and freezing painful expression, theme:「おかえりなさい」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.105 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a soft gold kimono holding an envelope pouch, smiling shyly, text color white, text""お年玉待ってます""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.43 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow
 
-#",,
-"wearing a red kimono holding a tiny opened pouch, grateful smile, text color white, text""お年玉ありがとう""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.44 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, raising hand while violently shivering, painful cold expression, theme:「ただいまー」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.106 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a pure white kimono with gold accents, elegant formal posture, text color white, text""謹賀新年""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.45 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow and blue sky
 
-#",,
-"wearing a refreshing blue kimono, gentle morning-like smile, text color white, text""今年もよろしくお願いします""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.46 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, bracing hard against a freezing gust, painful expression, theme:「大雪に気を付けて」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.107 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a mint-green kimono, casual friendly tone, text color white, text""ことよろ""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.47 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. winter
 
-#",,
-"wearing a classic silver-white kimono, refined formal expression, text color white, text""本年もよろしくお願いします""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.48 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, hugging himself desperately, intense frozen expression, thick icy breath, theme:「激寒！！」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.108 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a sakura-pink kimono with soft airy lighting, hopeful smile, text color white, text""良い年になりますように""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.49 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow
 
-#",,
-"wearing a pale warm kimono, wrapped in a soft blanket, text color white, text""ゆっくり休みます""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.50 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, wrapped in a thin blanket but still freezing painfully, theme:「暖かくして過ごしてね」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.109 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing a clean white kimono with health charm, calm sincere look, text color white, text""健康第一""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.51 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow and blue sky
 
-#",,
-"wearing classic red Santa outfit with white fur trim, gentle soft smile, text color white, text""了解です""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.52 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, covering mouth gently while freezing, caring painful expression, theme:「インフルエンザに気を付けてね」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.110 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing fluffy Santa hoodie, raising her hand lightly, text color white, text""はーい""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.53 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. winter
 
-#",,
-"wearing elegant red Santa dress with gold trim, approving bright smile, text color white, text""いいですね""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.54 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, stretching stiffly while shivering from cold, serious painful expression, theme:「体調管理最優先で」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.111 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing white Christmas-themed Santa coat, polite bow, text color white, text""よろしくお願いします""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.55 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow
 
-#",,
-"wearing red Santa robe in warm morning light, cheerful greeting smile, text color white, text""おはようございます""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.56 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, holding a tiny Christmas ornament with freezing painful expression, theme:「素敵なクリスマスを」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.112 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing deep red Santa cape under lantern lights, calm evening smile, text color white, text""こんばんは""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.57 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow and blue sky
 
-#",,
-"wearing cozy Santa parka with scarf, warming breath, text color white, text""寒いですねー""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.58 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, wearing a Santa hat while freezing, painful expression, icy breath, theme:「MerryChristmas」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.113 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing classic Santa dress, gentle tired smile, text color white, text""お疲れ様です""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.59 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. winter
 
-#",,
-"wearing soft winter Santa coat, holding a warm drink, text color white, text""あたたくして過ごしてね""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.60 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, holding a small Christmas twig decoration, freezing painful expression, theme:「Merry Xmas」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.114 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing fluffy Santa pajamas-style outfit, sleepy gentle eyes, text color white, text""おやすみなさい""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.61 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow
 
-#",,
-"wearing festive Santa dress, warm grateful smile, text color white, text""いつもありがとう""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.62 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, reaching forward expectantly with frozen painful smile, theme:「プレゼントお待ちしてます」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.115 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing ivory Santa cape, bowing deeply, text color white, text""ぺこり""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.63 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow and blue sky
 
-#",,
-"wearing red Santa outfit with fluffy sleeves, polite request gesture, text color white, text""お願いします""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.64 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, hugging a gift tightly for warmth, freezing painful expression, theme:「プレゼントありがとう」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.116 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing vibrant Santa costume, joyful excited pose, text color white, text""わーいやったー""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.65 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. winter
 
-#",,
-"wearing soft white-fur Santa coat, gentle worried eyes, text color white, text""無理しないでね""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.66 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, giving a gentle wave while shivering, painful cold expression, theme:「よい年末年始を」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.117 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing Christmas medical-theme ribbon on Santa outfit, caring expression, text color white, text""風邪に気を付けましょう""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.67 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow
 
-#",,
-"wearing cozy brown Santa robe, holding heat pack, text color white, text""身体はあたためてね""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.68 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, rushing anxiously while freezing, painful expression, theme:「なんだかバタバタ忙しいね」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.118 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing kitchen-style Santa apron over red dress, warm smile, text color white, text""温かいものを食べよう""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.69 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow and blue sky
 
-#",,
-"wearing blue-toned Santa winter coat, soft concerned eyes, text color white, text""寒さにお気をつけて""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.70 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, bowing deeply with freezing painful expression, theme:「今年もお世話になりました」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.119 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing ice-white Santa outfit in snowstorm, shocked cold face, text color white, text""寒すぎるー""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.71 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. winter
 
-#",,
-"wearing mint Santa dress, nodding gently, text color white, text""うんうん""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.72 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, hands together softly, freezing painful expression, theme:「よいお年をお過ごしください。」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.120 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing gold-accent Santa costume, holding small calendar, text color white, text""楽しみにしてます""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.73 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow
 
-#",,
-"wearing pastel Santa outfit with sparkles, excited bright eyes, text color white, text""わくわく""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.74 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, waving calmly but clearly freezing, painful cold expression, theme:「よいお年を」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.121 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing classic red Santa and holding small wreath, festive glow, text color white, text""Merry Christmas""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.75 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow and blue sky
 
-#",,
-"wearing modern white Santa suit, soft warm lighting, text color white, text""Merry Xmas""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.76 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, raising both hands in celebration while still freezing, gentle frozen smile, theme:「あけましておめでとう」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.122 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing green-accent Santa dress, holding a wrapped present, text color white, text""プレゼントありがとう""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.77 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. winter
 
-#",,
-"wearing red fluffy Santa dress, peeking into a gift box, text color white, text""クリスマスプレゼントかな？""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.78 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, giving a formal bow with a frozen polite smile, lightly shivering, theme:「あけましておめでとうございます」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.123 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing sparkly gold Santa outfit, warm holiday wish, text color white, text""ステキなクリスマスになりますように""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.79 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+#","place the quote in bold text with a thick black outline, centered. snow
 
-#",,
-"wearing champagne Santa coat, soft reflective smile, text color white, text""今年もお世話になりました""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.80 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, waving friendly while shivering, gentle frozen smile, theme:「今年もよろしく」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.124 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
 
-#",,
-"wearing winter Santa poncho, warm polite bow, text color white, text""来年もよろしくお願いします""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.81 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-"wearing pure white Santa outfit, elegant gentle bow, text color white, text""よいお年をお迎えください""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.82 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-"wearing festive red Santa kimono-hybrid dress, bright smile, text color white, text""あけましておめでとうございます""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.83 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-"wearing playful petite Santa dress, cheerful grin, text color white, text""あけおめ""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.84 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-"wearing soft pastel Santa outfit, hopeful clasped hands, text color white, text""いいことたくさんありますように""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.85 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-"wearing white-and-pink Santa dress, dreamy gentle eyes, text color white, text""幸せいっぱいの1年になりますように""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.86 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-"wearing classic red Santa with money pouch, shy cute smile, text color white, text""お年玉待ってます""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.87 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-"wearing Santa outfit with small opened pouch, grateful smile, text color white, text""お年玉ありがとう""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.88 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-"wearing formal white Santa cloak with gold embroidery, poised expression, text color white, text""謹賀新年""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.89 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-"wearing icy blue Santa skirt outfit, morning-like gentle smile, text color white, text""今年もよろしくお願いします""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.90 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-"wearing cheerful Santa hoodie, casual friendly look, text color white, text""ことよろ""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.91 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-"wearing elegant premium Santa dress, refined polite tone, text color white, text""本年もよろしくお願いします""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.92 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-"wearing warm beige Santa robe, hopeful soft smile, text color white, text""良い年になりますように""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.93 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-"wearing fluffy Santa pajamas, wrapped in blanket, text color white, text""ゆっくり休みます""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.94 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-"wearing clean winter Santa outfit, calm sincere expression, text color white, text""健康第一""","hyper?realistic photo, shot on Nikon Z9 with 85mm f/1.95 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super?insane detail), depth of field, bokeh use rule of thirds, leading lines
-
-#",,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
+#","place the quote in bold text with a thick black outline, centered. snow and blue sky
+
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, sincere bow with a frozen polite smile, lightly shaking, theme:「今年もよろしくお願いします」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.125 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
+
+#","place the quote in bold text with a thick black outline, centered. winter
+
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, holding an envelope shyly while freezing, gentle frozen smile, theme:「お年玉お待ちしております」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.126 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
+
+#","place the quote in bold text with a thick black outline, centered. snow
+
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, holding a small New Year decoration with a frozen polite smile, lightly shivering, theme:「謹賀新年」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.127 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
+
+#","place the quote in bold text with a thick black outline, centered. snow and blue sky
+
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, looking upward hopefully while shivering, gentle frozen smile, theme:「夢が叶う1年になりますように」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.128 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
+
+#","place the quote in bold text with a thick black outline, centered. winter
+
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, hands together wishing softly with a hopeful frozen smile, theme:「いいことたくさんありますように」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.129 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
+
+#","place the quote in bold text with a thick black outline, centered. snow
+
+in cold winter",,1
+"Japanese middle-aged man wearing a skin-tight full-body spandex suit, face exposed, doing a small warm-up stretch while freezing, gentle determined smile, theme:「健康第一」","hyper realistic photo, shot on Nikon Z9 with 85mm f/1.130 portrait, dutch tilt, clamshell beauty, kinetic, cinematic color grading, extremely detailed textures (super insane detail), depth of field, bokeh use rule of thirds, leading lines
+
+#","place the quote in bold text with a thick black outline, centered. snow and blue sky
+
+in cold winter",,1

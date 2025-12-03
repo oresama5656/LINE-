@@ -136,9 +136,14 @@ class OutputHandler:
                 print("🚀 プロンプトを送信")
         
         elif event_type == "csv_updated":
-            old_count = event.get("old_count", 0)
-            new_count = event.get("new_count", 0)
-            print(f"🗑️ 処理済みプロンプトを削除 ({old_count} → {new_count} rows)")
+            marked_done = event.get("marked_done", "")
+            if marked_done:
+                 print(f"✅ CSV更新: プロンプトを完了(done=1)にマークしました")
+            else:
+                # 後方互換性（念のため）
+                old_count = event.get("old_count", 0)
+                new_count = event.get("new_count", 0)
+                print(f"🗑️ 処理済みプロンプトを削除 ({old_count} → {new_count} rows)")
         
         elif event_type == "wait":
             mins = event.get("minutes", 0)

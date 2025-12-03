@@ -307,6 +307,11 @@ class ChatGPTCore:
         if use_csv_mode and (has_prefix or has_suffix):
             # CSV Mode: 各行のprefix/suffixを使用（空欄は前行引き継ぎ）
             for row in rows:
+                # done列のチェック (1, true, yes, on ならスキップ)
+                done_val = str(row.get('done', '')).lower()
+                if done_val in ('1', 'true', 'yes', 'on'):
+                    continue
+
                 prompt = row.get('prompt', '').strip()
                 if not prompt:
                     continue  # 空行スキップ
@@ -335,20 +340,25 @@ class ChatGPTCore:
         else:
             # GUI Mode: 全行でGUIデフォルト値を使用
             for row in rows:
+                # done列のチェック
+                done_val = str(row.get('done', '')).lower()
+                if done_val in ('1', 'true', 'yes', 'on'):
+                    continue
+
                 prompt = row.get('prompt', '').strip()
                 if not prompt:
                     continue
                 result.append((prompt, default_prefix, default_suffix))
 
         if not result:
-            self.logger.warning("No prompts found in CSV file")
-            raise InputError("No prompts found in CSV file")
+            self.logger.warning("No pending prompts found in CSV file (all done or empty)")
+            raise InputError("No pending prompts found in CSV file (check 'done' column)")
 
         self.logger.info(f"Loaded {len(result)} prompts (encoding: {successful_encoding}, mode: {'CSV' if use_csv_mode else 'GUI'})")
         return result
     
-    def remove_processed_prompt(self, csv_path, processed_prompt):
-        """処理済みプロンプトをCSVファイルから削除（複数エンコーディング対応）"""
+    def mark_prompt_as_done(self, csv_path, processed_prompt):
+        """処理済みプロンプトのdone列を1に更新（複数エンコーディング対応）"""
         try:
             # 複数のエンコーディングを試行して読み込み（UTF-8 with BOMを優先）
             encodings = ['utf-8-sig', 'utf-8', 'cp932', 'shift-jis']
@@ -376,31 +386,47 @@ class ChatGPTCore:
 
             if 'prompt' not in fieldnames:
                 return False, 0, 0
+            
+            # done列がない場合は追加
+            if 'done' not in fieldnames:
+                fieldnames.append('done')
+                # 既存の行にdone=0を設定（これから処理する行以外）
+                for row in rows:
+                    row['done'] = '0'
 
             original_count = len(rows)
-            # 処理済みプロンプトと一致する最初の1行のみ削除
+            # 処理済みプロンプトと一致する最初の1行のみ更新
             found_first = False
-            filtered_rows = []
+            updated_count = 0
+            
             for row in rows:
+                # 既にdone=1になっているものはスキップ
+                current_done = str(row.get('done', '')).lower()
+                if current_done in ('1', 'true', 'yes', 'on'):
+                    continue
+                
                 if not found_first and row.get('prompt', '').strip() == processed_prompt.strip():
+                    row['done'] = '1'
                     found_first = True
-                    continue  # 最初の一致行のみスキップ（削除）
-                filtered_rows.append(row)
-            new_count = len(filtered_rows)
-
-            if original_count > new_count:
-                # 同じエンコーディングで保存
-                with open(csv_path, 'w', encoding=successful_encoding, newline='') as f:
-                    writer = csv.DictWriter(f, fieldnames=fieldnames)
-                    writer.writeheader()
-                    writer.writerows(filtered_rows)
-                return True, original_count, new_count
+                    updated_count += 1
+                    # 1つ見つけたらループを抜ける（同じプロンプトが複数ある場合の挙動によるが、
+                    # 順番に処理しているはずなので最初に見つかった未処理のものを更新）
+                    break
+            
+            # 同じエンコーディングで保存
+            with open(csv_path, 'w', encoding=successful_encoding, newline='') as f:
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer.writeheader()
+                writer.writerows(rows)
+                
+            if found_first:
+                return True, original_count, original_count # 行数は変わらない
             else:
-                # 削除対象が見つからなかった
-                self.logger.warning(f"Prompt not found in CSV for deletion: '{processed_prompt[:50]}...'")
-                return False, original_count, new_count
+                # 更新対象が見つからなかった
+                self.logger.warning(f"Prompt not found in CSV for update: '{processed_prompt[:50]}...'")
+                return False, original_count, original_count
         except Exception as e:
-            self.logger.error(f"Failed to remove processed prompt from CSV: {e}")
+            self.logger.error(f"Failed to update prompt status in CSV: {e}")
             return False, 0, 0
 
 
@@ -701,17 +727,16 @@ def iter_process_prompts(csv_path, wait=60, profile_dir=None, pause_for_login=Fa
                     # リトライの場合はcontinueで次のループへ
                     continue
             
-            # 成功時の処理済みプロンプト削除
+            # 成功時の処理済みプロンプト更新（done=1）
             if success and not dry_run:
-                success_csv, old_count, new_count = core.remove_processed_prompt(csv_path, prompt)
+                success_csv, total_rows, _ = core.mark_prompt_as_done(csv_path, prompt)
                 if success_csv:
                     if logger:
-                        logger.info(f"Removed processed prompt from CSV: {old_count} -> {new_count} rows")
+                        logger.info(f"Marked prompt as done in CSV")
                     yield {
                         "type": "csv_updated", 
-                        "removed": prompt[:30] + "..." if len(prompt) > 30 else prompt,
-                        "old_count": old_count,
-                        "new_count": new_count
+                        "marked_done": prompt[:30] + "..." if len(prompt) > 30 else prompt,
+                        "total_rows": total_rows
                     }
                 
             # 最後のプロンプト以外は生成完了を待つ
