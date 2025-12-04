@@ -309,3 +309,54 @@ C:\LINE_OUTPUTS\
 - **AutoPrompter**: `./AutoPrompter/README.md`
 - **line_stamp_maker**: `./line_stamp_maker/README.md`
 - **sora_image_downloader**: `./sora_image_downloader/README.md`
+
+## 🖱️ Canva一括アップロードツール（AutoHotkey）
+
+### 概要
+
+`png_upload_canva.ahk`は、Canvaの一括作成機能で複数の画像を効率的にアップロードするための自動化スクリプトです。
+
+### 用途
+
+Canvaで一括デザイン作成する際、各ページに異なる画像をアップロードする作業を自動化します。
+
+### 必要環境
+
+- **AutoHotkey v1.1**（v2.0では動作しません）
+- [AutoHotkey v1.1 ダウンロード](https://www.autohotkey.com/download/ahk-install.exe)
+
+### 使い方
+
+1. **スクリプト起動**
+   - `png_upload_canva.ahk`をダブルクリックして起動
+   - タスクトレイにAutoHotkeyアイコンが表示されます
+
+2. **Canva操作**
+   - Canvaの一括作成画面を開く
+   - 画像をアップロードする準備ができたら以下のキーを押す
+
+3. **ショートカットキー**
+   - **ALT+1**: 2～20枚目の画像をアップロード（タブキー2～20回）
+   - **ALT+2**: 21～40枚目の画像をアップロード（タブキー21～40回）
+   - **Esc**: 処理を中断（スクリプトは終了せず、リロードされます）
+
+4. **動作内容**
+   - 下矢印キー → スペースキー → タブキー（n回） → Enterキーを繰り返し実行
+   - 処理完了時に「finish!」のメッセージが表示されます
+
+### カスタマイズ
+
+スクリプト上部で待機時間を調整できます：
+
+```autohotkey
+ShortSleep := 50   ; タブキー用のスリープ(ミリ秒)
+LongSleep := 100   ; その他の操作用のスリープ(ミリ秒)
+```
+
+環境に応じて値を増減してください。
+
+### 注意事項
+
+- Canvaの画面にフォーカスがある状態で実行してください
+- 処理中は他の操作をしないでください
+- 環境によっては待機時間の調整が必要な場合があります
