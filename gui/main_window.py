@@ -143,6 +143,8 @@ class StampMakerGUI:
         self.fit_radio.grid(row=0, column=1, sticky="w")
         self.trim_radio = ttk.Radiobutton(self.settings_frame, text="トリミング", variable=self.mode_var, value="trim")
         self.trim_radio.grid(row=0, column=2, sticky="w", padx=(10, 0))
+        self.compact_radio = ttk.Radiobutton(self.settings_frame, text="余白なし", variable=self.mode_var, value="compact")
+        self.compact_radio.grid(row=0, column=3, sticky="w", padx=(10, 0))
 
         ttk.Label(self.settings_frame, text="出力先:").grid(row=1, column=0, sticky="w", padx=(0, 10), pady=(10, 0))
         self.output_entry = ttk.Entry(self.settings_frame, textvariable=self.output_var, width=30)

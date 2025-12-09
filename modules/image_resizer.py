@@ -54,6 +54,8 @@ class ImageResizer:
         # スクリプト選択
         if mode == 'trim':
             script_name = 'resize-only-trimming.js'
+        elif mode == 'compact':
+            script_name = 'resize-compact.js'
         else:
             script_name = 'resize-only.js'
 
