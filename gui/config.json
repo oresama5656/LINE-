@@ -1,0 +1,36 @@
+{
+  "settings": {
+    "resize_mode": "fit",
+    "output_base_path": "C:\\LINE_OUTPUTS",
+    "auto_skip_png": true,
+    "max_stamp_count": 40
+  },
+  "paths": {
+    "line_stamp_maker": "./line_stamp_maker",
+    "auto_prompter": "./AutoPrompter/launch-chatgpt-prefix.bat",
+    "node_executable": "node"
+  },
+  "resize": {
+    "fit": {
+      "width": 370,
+      "height": 320
+    },
+    "trim": {
+      "width": 370,
+      "height": 320
+    },
+    "main": {
+      "width": 240,
+      "height": 240
+    },
+    "tab": {
+      "width": 96,
+      "height": 74
+    }
+  },
+  "logging": {
+    "enabled": true,
+    "log_folder": "./logs",
+    "max_log_files": 30
+  }
+}

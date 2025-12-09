@@ -1,22 +1,3 @@
-# LINE Stamp Maker - Python Dependencies
-
-# ドラッグ＆ドロップ機能
 tkinterdnd2>=0.3.0
-
-# 画像処理（main/tab作成用）
+customtkinter>=5.2.0
 Pillow>=9.0.0
-
-# Core dependencies (標準ライブラリ)
-# - tkinter (Python標準ライブラリ - 通常プリインストール済み)
-# - pathlib (Python 3.4+標準ライブラリ)
-# - subprocess (Python標準ライブラリ)
-# - json (Python標準ライブラリ)
-# - zipfile (Python標準ライブラリ)
-# - logging (Python標準ライブラリ)
-
-# Node.js dependencies (line_stamp_makerフォルダ内)
-# - sharp (画像処理ライブラリ)
-#
-# Node.jsのインストール:
-# 1. line_stamp_makerフォルダに移動
-# 2. npm install を実行

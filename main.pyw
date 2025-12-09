@@ -11,14 +11,14 @@ from pathlib import Path
 # モジュールパスを追加
 sys.path.insert(0, str(Path(__file__).parent))
 
-from gui.main_window import StampMakerGUI
+from gui.modern_window import ModernStampMakerGUI
 
 
 def main():
     """メイン関数"""
     try:
         # GUIを起動
-        app = StampMakerGUI()
+        app = ModernStampMakerGUI()
         app.run()
     except Exception as e:
         print(f"Fatal error: {e}")
