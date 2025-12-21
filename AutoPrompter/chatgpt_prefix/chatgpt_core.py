@@ -70,7 +70,7 @@ class ChatGPTCore:
 
         # PyAutoGUI設定
         # pyautogui.FAILSAFE = True  # コメントアウト: マウスを隅に移動した時の強制停止を無効化（GUIのStopボタンで停止可能）
-        pyautogui.FAILSAFE = False
+        pyautogui.FAILSAFE = True
         pyautogui.PAUSE = 0.0  # カスタムスリープで制御するため無効化
     
     def _check_stop(self):

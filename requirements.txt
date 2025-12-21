@@ -5,3 +5,4 @@ Pillow>=9.0.0
 pyautogui
 pyperclip
 pywin32
+PyYAML
