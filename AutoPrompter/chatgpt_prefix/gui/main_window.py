@@ -7,6 +7,7 @@ Simple tkinter-based GUI without encoding issues
 
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
+from tkinterdnd2 import DND_FILES
 import os
 from pathlib import Path
 from typing import Optional, Callable
@@ -62,6 +63,12 @@ class ChatGPTGUIWindow:
         self.csv_entry.pack(side="left", fill="x", expand=True, padx=(0,5))
         self.browse_btn = ttk.Button(self.csv_frame, text="参照", command=self.browse_csv, width=4)
         self.browse_btn.pack(side="left")
+
+        # Enable Drag and Drop
+        self.csv_entry.drop_target_register(DND_FILES)
+        self.csv_entry.dnd_bind('<<Drop>>', self.handle_drop)
+        self.csv_frame.drop_target_register(DND_FILES)
+        self.csv_frame.dnd_bind('<<Drop>>', self.handle_drop)
 
         # Settings frame - 2行に分ける
         self.settings_frame = ttk.LabelFrame(self.root, text="Settings", padding="5")
@@ -189,6 +196,19 @@ class ChatGPTGUIWindow:
         )
         if filename:
             self.csv_var.set(filename)
+
+    def handle_drop(self, event):
+        """Handle file drop event"""
+        if event.data:
+            # tkinterdnd2 can return paths with curly braces if they contain spaces
+            files = self.root.tk.splitlist(event.data)
+            if files:
+                file_path = files[0]
+                if file_path.lower().endswith('.csv'):
+                    self.csv_var.set(file_path)
+                    self.add_log(f"CSV files detected via drop: {os.path.basename(file_path)}", "info")
+                else:
+                    messagebox.showwarning("Warning", "Only CSV files are supported.")
 
 
     def update_speed_description(self, event=None):

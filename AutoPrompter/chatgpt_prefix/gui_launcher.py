@@ -6,6 +6,7 @@ Main entry point for the GUI application
 """
 
 import tkinter as tk
+from tkinterdnd2 import TkinterDnD
 import sys
 import os
 import signal
@@ -23,7 +24,7 @@ class SoraGUIApplication:
     """Main GUI Application"""
     
     def __init__(self):
-        self.root = tk.Tk()
+        self.root = TkinterDnD.Tk()
         
         # Components
         self.gui_window = ChatGPTGUIWindow(self.root)

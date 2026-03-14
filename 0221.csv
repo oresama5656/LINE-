@@ -1,0 +1,649 @@
+prefix,prompt,suffix,title,done
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",リアルロックマン（じじいのコスプレ）     [INPUT_DATA],"P1: ACTION/PROPS=""An elderly Mega Man lying flat on his face on a futon, completely immobile like a game over screen"" | TEXT=""ティウンティウン（寝る）""
+P2: ACTION/PROPS=""A close-up of the elderly man's eyes closing slowly, head drooping, fighting sleep but losing"" | TEXT=""限界だ…""
+P3: ACTION/PROPS=""An elderly Mega Man waving a white handkerchief in surrender, sitting on the floor"" | TEXT=""降参じゃ""
+P4: ACTION/PROPS=""An elderly man in cosplay staring blankly at a wall, looking devoid of all energy"" | TEXT=""燃え尽きた""
+P5: ACTION/PROPS=""An elderly Mega Man trying to stand up but his knees buckle, crumbling back down slowly"" | TEXT=""立てぬ""
+P6: ACTION/PROPS=""A close-up of the helmet being placed on a table next to a cup of tea, signifying the end of the day"" | TEXT=""任務完了（休憩）""
+P7: ACTION/PROPS=""An elderly Mega Man sitting in a waiting room at a hospital, looking utterly bored and tired"" | TEXT=""待ち時間長すぎ""
+P8: ACTION/PROPS=""An elderly man in a blue suit sighing deeply, shoulders slumped, looking at a calendar"" | TEXT=""明日は病院""
+P9: ACTION/PROPS=""An elderly Mega Man giving a weak, final wave to the camera before pulling a blanket over his head"" | TEXT=""さらばだ（明日まで）""",リアルロックマン（じじいのコスプレ）,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",眠るネコｘスタンダードワード    [INPUT_DATA],"P1: ACTION/PROPS=""Nodding slightly while eyes closed, fluffy sleeping cat"" | TEXT=""うん""
+P2: ACTION/PROPS=""Shaking head slightly while curled up, sleeping cat"" | TEXT=""ううん""
+P3: ACTION/PROPS=""Raising one paw sleepily from a cozy bed, cat"" | TEXT=""はい""
+P4: ACTION/PROPS=""Turning back, ignoring, fluffy cat tail"" | TEXT=""いいえ""
+P5: ACTION/PROPS=""Purring happily in sleep, thumbs up pose with paw, cat"" | TEXT=""YES""
+P6: ACTION/PROPS=""Covering face with both paws while sleeping, cat"" | TEXT=""NO""
+P7: ACTION/PROPS=""One eye suddenly snapping open from sleep, cat"" | TEXT=""まじ？""
+P8: ACTION/PROPS=""Ears perking up while eyes are tightly closed, cat"" | TEXT=""ほんと？""
+P9: ACTION/PROPS=""Dropping a toy from mouth in shock, half-asleep cat"" | TEXT=""嘘でしょ""",眠るネコｘスタンダードワード,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",眠るネコｘスタンダードワード    [INPUT_DATA],"P1: ACTION/PROPS=""Yawning wide, indifferent sleeping cat"" | TEXT=""へー""
+P2: ACTION/PROPS=""Resting head on paws, eyes barely open, bored cat"" | TEXT=""ふーん""
+P3: ACTION/PROPS=""Mouth shaped like an O, sleeping peacefully, cat"" | TEXT=""ほー""
+P4: ACTION/PROPS=""Nodding deeply in a dream, wise sleeping cat"" | TEXT=""なるほどね""
+P5: ACTION/PROPS=""Tapping chin with a paw, eyes closed, thinking cat"" | TEXT=""確かに""
+P6: ACTION/PROPS=""Pointing one claw up sleepily, cat"" | TEXT=""一理ある""
+P7: ACTION/PROPS=""Patting the ground repeatedly with eyes closed, cat"" | TEXT=""そうそう""
+P8: ACTION/PROPS=""Stretching lazily, agreeing sleepy cat"" | TEXT=""だよね""
+P9: ACTION/PROPS=""Hugging a fish plushie tightly, nodding in sleep"" | TEXT=""わかる""",眠るネコｘスタンダードワード,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",眠るネコｘスタンダードワード    [INPUT_DATA],"P1: ACTION/PROPS=""Startled awake slightly, fur puffed up, cat"" | TEXT=""えっ""
+P2: ACTION/PROPS=""Glaring with one sleepy eye, grumpy cat"" | TEXT=""あ？""
+P3: ACTION/PROPS=""Tilting head while still lying down, sleepy cat"" | TEXT=""ん？""
+P4: ACTION/PROPS=""Frowning in sleep, annoyed twitching cat"" | TEXT=""は？""
+P5: ACTION/PROPS=""Smiling smugly in sleep, confident cat"" | TEXT=""まあね""
+P6: ACTION/PROPS=""Twitching whiskers in doubt, sleeping cat"" | TEXT=""微妙""
+P7: ACTION/PROPS=""Rolling over on its back, completely relaxed cat"" | TEXT=""どっちでも""
+P8: ACTION/PROPS=""Belly up, totally surrendered to sleep, lazy cat"" | TEXT=""お任せ""
+P9: ACTION/PROPS=""Limp and melting like liquid on a sofa, cat"" | TEXT=""なんでもいい""",眠るネコｘスタンダードワード,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",眠るネコｘスタンダードワード    [INPUT_DATA],"P1: ACTION/PROPS=""Clapping front paws softly in sleep, cat"" | TEXT=""すごいね""
+P2: ACTION/PROPS=""Smirking while asleep, cool cat with sunglasses"" | TEXT=""やるじゃん""
+P3: ACTION/PROPS=""Sighing in relief, peaceful sleeping cat on a cushion"" | TEXT=""よかった""
+P4: ACTION/PROPS=""Shoulders shaking in silent laughter while sleeping, cat"" | TEXT=""うける""
+P5: ACTION/PROPS=""Rolling around laughing in a dream, silly cat"" | TEXT=""爆笑""
+P6: ACTION/PROPS=""Sleeping in a vibrant green field of grass, peaceful cat"" | TEXT=""大草原""
+P7: ACTION/PROPS=""Patting an empty space comfortingly in sleep, cat"" | TEXT=""ドンマイ""
+P8: ACTION/PROPS=""Pushing a favorite toy forward sleepily, cat"" | TEXT=""元気出して""
+P9: ACTION/PROPS=""Pointing repeatedly at something in a dream, cat"" | TEXT=""それそれ""",眠るネコｘスタンダードワード,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",眠るネコｘスタンダードワード    [INPUT_DATA],"P1: ACTION/PROPS=""Suddenly pointing paw straight up from sleep, cat"" | TEXT=""それ！""
+P2: ACTION/PROPS=""Holding up an O sign with paws, eyes closed, cat"" | TEXT=""正解""
+P3: ACTION/PROPS=""Pushing a large imaginary button in sleep, cat"" | TEXT=""ピンポン""
+P4: ACTION/PROPS=""Making an X sign with furry arms, eyes closed, cat"" | TEXT=""ブブー""
+P5: ACTION/PROPS=""Catching a dream mouse, triumphant sleeping cat"" | TEXT=""当たり""
+P6: ACTION/PROPS=""Missing a toy and looking sad in sleep, droopy ears, cat"" | TEXT=""ハズレ""
+P7: ACTION/PROPS=""Saluting lazily with one paw, half-asleep cat"" | TEXT=""了解""
+P8: ACTION/PROPS=""Wearing tiny aviator goggles, saluting in sleep, cat"" | TEXT=""ラジャー""
+P9: ACTION/PROPS=""Making an OK",眠るネコｘスタンダードワード,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",眠る美女    [INPUT_DATA],"P1: ACTION/PROPS=""Sleeping peacefully in white sheets, gentle morning light"" | TEXT=""おやすみなさい""
+P2: ACTION/PROPS=""Rubbing sleepy eyes, sitting up in bed, messy hair"" | TEXT=""おはよう""
+P3: ACTION/PROPS=""Half asleep, hiding face under blanket"" | TEXT=""まだ眠い""
+P4: ACTION/PROPS=""Closing eyes with a smile, diving back into pillows"" | TEXT=""二度寝します""
+P5: ACTION/PROPS=""Wrapped tightly in a blanket like a burrito, refusing to move"" | TEXT=""布団から出られない""
+P6: ACTION/PROPS=""Showing five fingers lazily from under the covers"" | TEXT=""あと五分""
+P7: ACTION/PROPS=""Stretching arms wide, bright smile, morning sun"" | TEXT=""よく寝た""
+P8: ACTION/PROPS=""Looking at alarm clock with wide shocked eyes, messy hair"" | TEXT=""寝すぎた""
+P9: ACTION/PROPS=""Lying flat on back, relaxed expression, surrounded by plushies"" | TEXT=""今日は寝る日""",眠る美女,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",眠る美女    [INPUT_DATA],"P1: ACTION/PROPS=""Resting head on desk, exhausted expression, office setting"" | TEXT=""限界です""
+P2: ACTION/PROPS=""Jerking awake quickly, slightly drooling, looking around in panic"" | TEXT=""意識とんでた""
+P3: ACTION/PROPS=""Stretching with a yawn, putting away laptop"" | TEXT=""休憩します""
+P4: ACTION/PROPS=""Holding a large cup of coffee, sleepy eyes, blowing on hot drink"" | TEXT=""カフェイン注入""
+P5: ACTION/PROPS=""Struggling to keep eyes open, resting chin on hand"" | TEXT=""まぶたが重い""
+P6: ACTION/PROPS=""Pretending to read a document, eyes closed secretly"" | TEXT=""寝てません""
+P7: ACTION/PROPS=""Smiling softly while resting head on an open book"" | TEXT=""夢見てた""
+P8: ACTION/PROPS=""Staring blankly at computer screen, looking extremely tired"" | TEXT=""集中力切れ""
+P9: ACTION/PROPS=""Hugging a briefcase, looking longingly at the window"" | TEXT=""帰って寝たい""",眠る美女,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",眠る美女    [INPUT_DATA],"P1: ACTION/PROPS=""Yawning softly in soft lighting, wearing comfortable loungewear"" | TEXT=""眠くなってきた""
+P2: ACTION/PROPS=""Hair wrapped in a towel, fresh face, wearing a bathrobe"" | TEXT=""お風呂入る""
+P3: ACTION/PROPS=""Showing off cute silk pajamas, happy expression"" | TEXT=""パジャマに着替えた""
+P4: ACTION/PROPS=""Jumping onto a soft bed, mid-air, joyful face"" | TEXT=""ベッドにダイブ""
+P5: ACTION/PROPS=""Lying down looking up, pointing fingers in the air as if counting"" | TEXT=""羊数える""
+P6: ACTION/PROPS=""Holding a warm mug with both hands, gentle smile, steam rising"" | TEXT=""ホットミルク飲む""
+P7: ACTION/PROPS=""Tucked in bed, holding blanket up to chin, ready to sleep"" | TEXT=""寝る準備完了""
+P8: ACTION/PROPS=""Reaching hand out to turn off a bedside lamp"" | TEXT=""電気消して""
+P9: ACTION/PROPS=""Waving goodnight from bed, sweet smile, dim room"" | TEXT=""いい夢みてね""",眠る美女,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",眠る美女    [INPUT_DATA],"P1: ACTION/PROPS=""Tossing and turning in bed, frustrated expression, dark room"" | TEXT=""眠れない""
+P2: ACTION/PROPS=""Eyes wide open in the dark, staring at the ceiling"" | TEXT=""目が冴えてる""
+P3: ACTION/PROPS=""Sitting at desk in a dark room with a desk lamp, working intensely"" | TEXT=""徹夜確定""
+P4: ACTION/PROPS=""Looking at the window where dawn is breaking, looking tired"" | TEXT=""朝になっちゃう""
+P5: ACTION/PROPS=""Looking at smartphone screen in the dark, face illuminated"" | TEXT=""誰か起きてる""
+P6: ACTION/PROPS=""Rolling around on the floor, bored expression"" | TEXT=""暇すぎる""
+P7: ACTION/PROPS=""Scrolling on smartphone in bed, screen light shining on face"" | TEXT=""スマホ見ちゃう""
+P8: ACTION/PROPS=""Trying to sleep but looking annoyed, hugging a pillow tight"" | TEXT=""寝つきが悪い""
+P9: ACTION/PROPS=""Pointing at dark circles under eyes, sighing, holding a mirror"" | TEXT=""目のクマやばい""",眠る美女,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",眠る美女    [INPUT_DATA],"P1: ACTION/PROPS=""Sleeping with a happy smile, drooling slightly, dreaming of food"" | TEXT=""美味しい""
+P2: ACTION/PROPS=""Muttering in sleep, slight frown, cute sleeping face"" | TEXT=""むにゃむにゃ""
+P3: ACTION/PROPS=""Sweating slightly in sleep, tossing in bed, distressed face"" | TEXT=""逃げろ""
+P4: ACTION/PROPS=""Sleeping peacefully, floating pose on clouds, dreamscape"" | TEXT=""空を飛んでる""
+P5: ACTION/PROPS=""Hugging a pillow with a blissful smile, deep sleep"" | TEXT=""幸せ""
+P6: ACTION/PROPS=""Shaking head gently while asleep, frowning slightly"" | TEXT=""もう食べられない""
+P7: ACTION/PROPS=""Smiling mysteriously in sleep, closed eyes, elegant posture"" | TEXT=""ふふふ""
+P8: ACTION/PROPS=""Jolting in sleep, clutching the blanket tightly"" | TEXT=""落ちる""
+P9: ACTION/PROPS=""Waking up suddenly from a dream, panting slightly, surprised"" | TEXT=""ハッと起きた""",眠る美女,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",眠る美女    [INPUT_DATA],"P1: ACTION/PROPS=""Peeking over the blanket with sad puppy eyes"" | TEXT=""寂しい""
+P2: ACTION/PROPS=""Patting the empty space beside her on the bed, inviting smile"" | TEXT=""添い寝して""
+P3: ACTION/PROPS=""Lying down, looking up expectantly, hoping to be patted"" | TEXT=""トントンして""
+P4: ACTION/PROPS=""Pointing at her cheek, lying on bed, asking for cuddles"" | TEXT=""腕枕希望""
+P5: ACTION/PROPS=""Sitting up in bed, rubbing eyes, looking cute and vulnerable"" | TEXT=""起きたよ""
+P6: ACTION/PROPS=""Leaning head towards the viewer, wanting a head pat, soft expression"" | TEXT=""なでなでして""
+P7: ACTION/PROPS=""Pulling the blanket to share, warm and welcoming smile"" | TEXT=""一緒に寝よう""
+P8: ACTION/PROPS=""Snuggled warmly under a thick duvet, rosy cheeks"" | TEXT=""ぽかぽかする""
+P9: ACTION/PROPS=""Hugging a heart-shaped pillow, closing eyes happily, sweet sleeping face"" | TEXT=""大好き""",眠る美女,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",怒るネコ    [INPUT_DATA],"P1: ACTION/PROPS=""Nodding aggressively, glaring furiously, angry cat"" | TEXT=""うん""
+P2: ACTION/PROPS=""Shaking head furiously, ears flat back, angry cat"" | TEXT=""ううん""
+P3: ACTION/PROPS=""Raising paw sharply with a fierce glare, angry cat"" | TEXT=""はい""
+P4: ACTION/PROPS=""Turning away sharply, tail swishing violently, angry cat"" | TEXT=""いいえ""
+P5: ACTION/PROPS=""Slamming paw on a YES button, intense expression, angry cat"" | TEXT=""YES""
+P6: ACTION/PROPS=""Crossing arms, hissing with fangs bared, angry cat"" | TEXT=""NO""
+P7: ACTION/PROPS=""Eyes wide with rage and disbelief, fur standing up, angry cat"" | TEXT=""まじ？""
+P8: ACTION/PROPS=""Ears completely flat, suspicious and angry glare, angry cat"" | TEXT=""ほんと？""
+P9: ACTION/PROPS=""Claws fully out, jaw dropped in angry shock, angry cat"" | TEXT=""嘘でしょ""",怒るネコ,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",怒るネコ    [INPUT_DATA],"P1: ACTION/PROPS=""Looking away with a sarcastic and annoyed expression, angry cat"" | TEXT=""へー""
+P2: ACTION/PROPS=""Narrowed eyes, tapping tail impatiently on the ground, angry cat"" | TEXT=""ふーん""
+P3: ACTION/PROPS=""Ears tilted back, glaring sideways menacingly, angry cat"" | TEXT=""ほー""
+P4: ACTION/PROPS=""Nodding slowly but with a dangerous dark aura, angry cat"" | TEXT=""なるほどね""
+P5: ACTION/PROPS=""Slamming paw on the desk in aggressive agreement, angry cat"" | TEXT=""確かに""
+P6: ACTION/PROPS=""Pointing a sharp claw forward, deep frown, angry cat"" | TEXT=""一理ある""
+P7: ACTION/PROPS=""Nodding fast with a clearly irritated expression, angry cat"" | TEXT=""そうそう""
+P8: ACTION/PROPS=""Sighing heavily, steam coming out of ears, angry cat"" | TEXT=""だよね""
+P9: ACTION/PROPS=""Biting a handkerchief in frustrated sympathy, angry cat"" | TEXT=""わかる""",怒るネコ,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",怒るネコ    [INPUT_DATA],"P1: ACTION/PROPS=""Fur standing on end, completely shocked and enraged, angry cat"" | TEXT=""えっ""
+P2: ACTION/PROPS=""Looking over shoulder with a terrifying sharp glare, angry cat"" | TEXT=""あ？""
+P3: ACTION/PROPS=""Tilting head with a dangerous low growl posture, angry cat"" | TEXT=""ん？""
+P4: ACTION/PROPS=""Snarling fiercely, teeth fully bared, intense glare, angry cat"" | TEXT=""は？""
+P5: ACTION/PROPS=""Smirking arrogantly with crossed paws, looking down, angry cat"" | TEXT=""まあね""
+P6: ACTION/PROPS=""Scratching a post aggressively, looking extremely dissatisfied, angry cat"" | TEXT=""微妙""
+P7: ACTION/PROPS=""Kicking a toy away violently, clearly annoyed, angry cat"" | TEXT=""どっちでも""
+P8: ACTION/PROPS=""Turning away, folding arms with a loud huff, angry cat"" | TEXT=""お任せ""
+P9: ACTION/PROPS=""Throwing both paws up in the air out of total frustration, angry cat"" | TEXT=""なんでもいい""",怒るネコ,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",怒るネコ    [INPUT_DATA],"P1: ACTION/PROPS=""Clapping slowly and sarcastically, completely unamused face, angry cat"" | TEXT=""すごいね""
+P2: ACTION/PROPS=""Thumbs up but with a scary intimidating smile, angry cat"" | TEXT=""やるじゃん""
+P3: ACTION/PROPS=""Wiping sweat but still glaring fiercely at the camera, angry cat"" | TEXT=""よかった""
+P4: ACTION/PROPS=""Laughing aggressively, slapping the ground hard, angry cat"" | TEXT=""うける""
+P5: ACTION/PROPS=""Laughing so hard veins are popping out on forehead, angry cat"" | TEXT=""爆笑""
+P6: ACTION/PROPS=""Standing in a burning grass field, laughing maniacally, angry cat"" | TEXT=""大草原""
+P7: ACTION/PROPS=""Patting someone's shoulder a bit too hard, strict face, angry cat"" | TEXT=""ドンマイ""
+P8: ACTION/PROPS=""Shoving a fish toy forcefully towards the screen, angry cat"" | TEXT=""元気出して""
+P9: ACTION/PROPS=""Pointing fiercely with claws out, eyes burning with intensity, angry cat"" | TEXT=""それそれ""",怒るネコ,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",怒るネコ    [INPUT_DATA],"P1: ACTION/PROPS=""Slamming both paws down heavily on a table, angry cat"" | TEXT=""それ！""
+P2: ACTION/PROPS=""Holding up a circle sign with an aggressive glare, angry cat"" | TEXT=""正解""
+P3: ACTION/PROPS=""Smashing a buzzer button repeatedly with sheer force, angry cat"" | TEXT=""ピンポン""
+P4: ACTION/PROPS=""Holding up an X sign tightly, hissing loudly, angry cat"" | TEXT=""ブブー""
+P5: ACTION/PROPS=""Pointing straight ahead with a fierce triumphant glare, angry cat"" | TEXT=""当たり""
+P6: ACTION/PROPS=""Ripping a piece of paper to shreds, totally frustrated, angry cat"" | TEXT=""ハズレ""
+P7: ACTION/PROPS=""Saluting sharply with a strict and serious expression, angry cat"" | TEXT=""了解""
+P8: ACTION/PROPS=""Military salute with a terrifying glaring face, angry cat"" | TEXT=""ラジャー""
+P9: ACTION/PROPS=""Making an OK sign but snapping fingers forcefully, angry cat"" | TEXT=""オッケー""",怒るネコ,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",怒るネコ    [INPUT_DATA],"P1: ACTION/PROPS=""Fur completely puffed up, hissing loudly at the screen, angry cat"" | TEXT=""もう怒った""
+P2: ACTION/PROPS=""Sharpening claws on a tree trunk, intense death glare, angry cat"" | TEXT=""許さない""
+P3: ACTION/PROPS=""Flipping a food bowl completely upside down in rage, angry cat"" | TEXT=""ふざけんな""
+P4: ACTION/PROPS=""Classic cat hiss, fangs showing, arched back, angry cat"" | TEXT=""シャー！""
+P5: ACTION/PROPS=""Shoving a paw right in front of the camera like a stop sign, angry cat"" | TEXT=""無理""
+P6: ACTION/PROPS=""Looking over shoulder with absolute disdain and disgust, angry cat"" | TEXT=""絶交""
+P7: ACTION/PROPS=""Steam blowing loudly out of ears, red face, furious cat"" | TEXT=""激おこ""
+P8: ACTION/PROPS=""Facepalming with a paw, deeply frustrated and angry, angry cat"" | TEXT=""最悪""
+P9: ACTION/PROPS=""Packing a tiny bindle on a stick, stomping away angrily, angry cat"" | TEXT=""帰る""",怒るネコ,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",美人ｘ寝顔    [INPUT_DATA],"P1: ACTION/PROPS=""Sleeping peacefully holding a smartphone on a fluffy bed, wearing cute pajamas"" | TEXT=""ごめん寝落ちしてた""
+P2: ACTION/PROPS=""Rubbing eyes sleepily with a smartphone in hand, dim lighting"" | TEXT=""もう限界かも""
+P3: ACTION/PROPS=""Hugging a large stuffed bear while fast asleep, gentle smile"" | TEXT=""おやすみなさい""
+P4: ACTION/PROPS=""Dropping smartphone on the face while dozing off, slightly surprised expression"" | TEXT=""顔にスマホ落ちた""
+P5: ACTION/PROPS=""Curled up under a warm blanket, only face visible, sleeping soundly"" | TEXT=""ぬくぬく""
+P6: ACTION/PROPS=""Sleeping with mouth slightly open, a tiny drool, totally relaxed"" | TEXT=""爆睡中""
+P7: ACTION/PROPS=""Tossing and turning in bed, messy hair but looking beautiful"" | TEXT=""うーん""
+P8: ACTION/PROPS=""Faintly smiling in sleep, dreaming about something nice"" | TEXT=""いい夢みてね""
+P9: ACTION/PROPS=""Breathing softly, deeply asleep, moonlight shining through window"" | TEXT=""また明日ね""",美人ｘ寝顔,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",美人ｘ寝顔    [INPUT_DATA],"P1: ACTION/PROPS=""Resting head on arms on an office desk, dozing off with glasses slightly slipped"" | TEXT=""ちょっとだけ休憩""
+P2: ACTION/PROPS=""Nodding off while sitting in an office chair, holding a pen"" | TEXT=""起きてます""
+P3: ACTION/PROPS=""Sleeping behind a pile of documents on a desk, trying to hide"" | TEXT=""見逃して""
+P4: ACTION/PROPS=""Sleeping with a sticky note on the forehead that says busy, funny but cute"" | TEXT=""充電中""
+P5: ACTION/PROPS=""Waking up suddenly in the office, looking confused and wiping mouth"" | TEXT=""ハッ""
+P6: ACTION/PROPS=""Puffing cheeks in sleep while leaning on a computer keyboard"" | TEXT=""むにゃむにゃ""
+P7: ACTION/PROPS=""Dozing off with a coffee cup in hand, precarious but cute"" | TEXT=""カフェイン効かない""
+P8: ACTION/PROPS=""Sleeping deeply during a lunch break, arms crossed on the desk"" | TEXT=""お昼寝最高""
+P9: ACTION/PROPS=""Yawning with eyes closed at the desk, looking exhausted"" | TEXT=""眠すぎ""",美人ｘ寝顔,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",美人ｘ寝顔    [INPUT_DATA],"P1: ACTION/PROPS=""Sleeping while leaning against the train window, gentle sunlight"" | TEXT=""着いたら起こして""
+P2: ACTION/PROPS=""Nodding off and head leaning on the shoulder of the person next to her, wearing a coat"" | TEXT=""寄りかかってもいい""
+P3: ACTION/PROPS=""Sleeping soundly with earphones in, swaying on a train seat"" | TEXT=""自分の世界""
+P4: ACTION/PROPS=""Suddenly waking up in a panic on a train, looking around"" | TEXT=""ここどこ""
+P5: ACTION/PROPS=""Sleeping with a scarf wrapped around the neck, cozy and cute"" | TEXT=""ぽかぽか""
+P6: ACTION/PROPS=""Trying to stay awake on the train but eyes are closing, fighting sleep"" | TEXT=""寝てないよ""
+P7: ACTION/PROPS=""Sleeping deeply while holding a shopping bag tightly on lap"" | TEXT=""疲れちゃった""
+P8: ACTION/PROPS=""Head tilting forward heavily while sleeping on the train seat"" | TEXT=""かくっ""
+P9: ACTION/PROPS=""Looking sleepy at the station platform, rubbing eyes gently"" | TEXT=""帰り道眠い""",美人ｘ寝顔,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",美人ｘ寝顔    [INPUT_DATA],"P1: ACTION/PROPS=""Sleeping on a comfortable living room sofa with a pet cat on stomach"" | TEXT=""至福のとき""
+P2: ACTION/PROPS=""Dozing off while reading a magazine on the sofa, magazine covering half the face"" | TEXT=""活字は眠くなる""
+P3: ACTION/PROPS=""Sleeping sprawled out on a fluffy rug in the living room, totally defenseless"" | TEXT=""やる気ゼロ""
+P4: ACTION/PROPS=""Sleeping with TV remote in hand on the sofa, mouth slightly open"" | TEXT=""テレビ見てるよ""
+P5: ACTION/PROPS=""Yawning and stretching on the sofa, looking very relaxed"" | TEXT=""よく寝た""
+P6: ACTION/PROPS=""Sleeping curled up tightly on the sofa like a cat"" | TEXT=""ごろごろ""
+P7: ACTION/PROPS=""Sleeping with a half-eaten snack nearby, happy expression"" | TEXT=""おなかいっぱい""
+P8: ACTION/PROPS=""Waking up with messy bedhead on the sofa, looking sleepy"" | TEXT=""今何時""
+P9: ACTION/PROPS=""Refusing to get up, pulling a blanket over the head on the sofa"" | TEXT=""動きたくない""",美人ｘ寝顔,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",美人ｘ寝顔    [INPUT_DATA],"P1: ACTION/PROPS=""Sleeping with head on the counter of a bar, flushed cheeks, empty glass nearby"" | TEXT=""もう飲めない""
+P2: ACTION/PROPS=""Smiling happily in sleep with rosy cheeks, leaning against a wall"" | TEXT=""いい気分""
+P3: ACTION/PROPS=""Dozing off while holding a beer mug, flushed face"" | TEXT=""酔ってないもん""
+P4: ACTION/PROPS=""Sleeping on a restaurant table, completely knocked out, red face"" | TEXT=""撃沈""
+P5: ACTION/PROPS=""Muttering something in sleep, looking totally drunk but cute"" | TEXT=""夢の中""
+P6: ACTION/PROPS=""Sleeping in the back seat of a taxi, leaning back, flushed"" | TEXT=""無事に帰る""
+P7: ACTION/PROPS=""Falling asleep immediately after taking off shoes in the entryway"" | TEXT=""限界突破""
+P8: ACTION/PROPS=""Clinging to a cushion and sleeping soundly, cheeks very red"" | TEXT=""ふわふわする""
+P9: ACTION/PROPS=""Waking up slightly, looking dazed with red cheeks, half-open eyes"" | TEXT=""水ちょうだい""",美人ｘ寝顔,1
+"[TASK]
+Generate a 3x3 grid image (9 panels) tailored for messaging app stickers.
+
+[FORMAT]
+ASPECT_RATIO ::= ""1:1 (Square). The overall output image MUST be a perfect square, ensuring that each of the 3x3 grid panels is also a perfect square.""
+
+[GLOBAL_PARAMETERS]
+STYLE ::= ""Ultra-realistic cinematic photography, highly detailed, vivid colors.""
+CAMERA ::= ""Bust-up shot (chest and head). 85mm portrait lens. The subject's face MUST occupy at least 25% of the panel area to emphasize exaggerated, expressive emotions.""
+ENVIRONMENT ::= ""Contextual background that realistically matches the scene and props. Must use a shallow depth of field (f/1.8 aperture) to create a beautiful bokeh effect, blurring the background so the subject and text stand out clearly.""
+TEXT_STYLE ::= ""Large, thick, bold, highly legible Japanese text placed at the bottom center of the panel, with a strong outline for visibility.""
+LAYOUT_RULES ::= ""Seamless grid. Absolutely NO visible border lines, grid lines, separating frames, or white/black margins between the panels. Do NOT render panel labels, identifiers, or numbers (such as P1, P2, P3, etc.) anywhere in the generated image.""
+
+[PANEL_GENERATION_LOGIC]
+Each panel <P> must instantiate the following formula:
+<P> ::= <SUBJECT> doing <ACTION> with <PROPS> in matching <ENVIRONMENT> + <TEXT_STYLE> rendering exact ""<TEXT>""
+
+[VARIABLES]
+SUBJECT ::=",美人ｘ寝顔    [INPUT_DATA],"P1: ACTION/PROPS=""Hugging a pillow tightly in bed, refusing to wake up, morning light"" | TEXT=""あと五分""
+P2: ACTION/PROPS=""Sleeping with head totally buried under a messy blanket"" | TEXT=""起きたくない""
+P3: ACTION/PROPS=""One eye open trying to check the alarm clock, extremely sleepy"" | TEXT=""朝ですか""
+P4: ACTION/PROPS=""Yawning largely while sitting on the edge of the bed in pajamas"" | TEXT=""おはよう""
+P5: ACTION/PROPS=""Falling back onto the pillow, going back to sleep, hair messy"" | TEXT=""二度寝します""
+P6: ACTION/PROPS=""Rubbing both eyes with fists, looking very grumpy and sleepy"" | TEXT=""ねむい""
+P7: ACTION/PROPS=""Stretching arms wide in bed, eyes still closed, morning sun"" | TEXT=""スッキリ""
+P8: ACTION/PROPS=""Looking blankly at the wall, half asleep, sitting in bed"" | TEXT=""ぼーっ""
+P9: ACTION/PROPS=""Smiling gently in the morning light, still lying down"" | TEXT=""今日もがんばろ""",美人ｘ寝顔,1
