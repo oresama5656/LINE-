@@ -49,6 +49,7 @@ class ChatGPTGUIWindow:
         # Callbacks
         self.on_start_callback: Optional[Callable] = None
         self.on_stop_callback: Optional[Callable] = None
+        self.on_skip_wait_callback: Optional[Callable] = None
 
         # Create GUI
         self.create_widgets()
@@ -135,6 +136,7 @@ class ChatGPTGUIWindow:
         self.button_row = ttk.Frame(self.control_frame)
         self.start_btn = ttk.Button(self.button_row, text="Start", command=self.on_start, width=10)
         self.stop_btn = ttk.Button(self.button_row, text="Stop", command=self.on_stop, state="disabled", width=10)
+        self.skip_btn = ttk.Button(self.button_row, text="Waitスキップ", command=self.on_skip_wait, state="disabled", width=11)
         self.clear_btn = ttk.Button(self.button_row, text="Clear Log", command=self.clear_log, width=10)
 
         # プログレスバー（2行目）
@@ -176,6 +178,7 @@ class ChatGPTGUIWindow:
         self.button_row.pack(fill="x", pady=(0,3))
         self.start_btn.pack(side="left", padx=(0,5))
         self.stop_btn.pack(side="left", padx=(0,5))
+        self.skip_btn.pack(side="left", padx=(0,5))
         self.clear_btn.pack(side="left")
         self.progress_row.pack(fill="x", pady=(0,2))
         self.progress_bar.pack(fill="x", expand=True)
@@ -307,15 +310,23 @@ class ChatGPTGUIWindow:
         self.is_running = False
         self.start_btn.configure(state="normal")
         self.stop_btn.configure(state="disabled")
+        self.skip_btn.configure(state="disabled")
         self.status_var.set("Stopping...")
 
         if self.on_stop_callback:
             self.on_stop_callback()
 
-    def set_callbacks(self, on_start: Callable, on_stop: Callable):
+    def on_skip_wait(self):
+        """Skip wait button clicked"""
+        if self.on_skip_wait_callback:
+            self.on_skip_wait_callback()
+        self.skip_btn.configure(state="disabled")
+
+    def set_callbacks(self, on_start: Callable, on_stop: Callable, on_skip_wait: Callable):
         """Set callback functions"""
         self.on_start_callback = on_start
         self.on_stop_callback = on_stop
+        self.on_skip_wait_callback = on_skip_wait
     
     def update_progress(self, current: int, total: int):
         """Update progress bar"""

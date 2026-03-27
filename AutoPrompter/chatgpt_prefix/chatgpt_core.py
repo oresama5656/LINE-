@@ -468,6 +468,14 @@ def iter_process_prompts(csv_path, wait=60, profile_dir=None, pause_for_login=Fa
         # プロンプト読み込み (use_csv_modeフラグを渡す)
         prompts = core.load_prompts(csv_path, use_csv_mode)
         
+        # 実行開始時にスキップファイルを掃除しておく
+        skip_file = Path(csv_path).parent / ".chatgpt_skip_wait"
+        if skip_file.exists():
+            try:
+                skip_file.unlink()
+            except:
+                pass
+        
         # max_items制限適用
         if max_items and len(prompts) > max_items:
             if logger:
@@ -748,8 +756,20 @@ def iter_process_prompts(csv_path, wait=60, profile_dir=None, pause_for_login=Fa
                 
                 # 待機時間中のカウントダウン
                 remaining = core.wait
+                skip_file = Path(csv_path).parent / ".chatgpt_skip_wait"
+                
                 while remaining > 0:
                     core._check_stop()
+
+                    # スキップファイルの存在チェック
+                    if skip_file.exists():
+                        if logger:
+                            logger.info("ユーザーにより待機がスキップされました")
+                        try:
+                            skip_file.unlink()
+                        except:
+                            pass
+                        break
 
                     mins = remaining // 60
                     secs = remaining % 60
@@ -763,8 +783,10 @@ def iter_process_prompts(csv_path, wait=60, profile_dir=None, pause_for_login=Fa
                         "total": total_prompts
                     }
 
-                    time.sleep(min(10, remaining))  # 10秒または残り時間
-                    remaining -= min(10, remaining)
+                    # ボタンの反応を良くするため1秒待機に変更
+                    wait_step = min(1, remaining)
+                    time.sleep(wait_step)
+                    remaining -= wait_step
         
         # 最後のプロンプト処理後も生成完了を待機
         if sent_count > 0 and not dry_run:
@@ -772,8 +794,20 @@ def iter_process_prompts(csv_path, wait=60, profile_dir=None, pause_for_login=Fa
             
             core.restore_original_window()
             remaining = core.wait
+            skip_file = Path(csv_path).parent / ".chatgpt_skip_wait"
+            
             while remaining > 0:
                 core._check_stop()
+
+                # スキップファイルの存在チェック
+                if skip_file.exists():
+                    if logger:
+                        logger.info("ユーザーにより待機がスキップされました")
+                    try:
+                        skip_file.unlink()
+                    except:
+                        pass
+                    break
 
                 mins = remaining // 60
                 secs = remaining % 60
@@ -786,8 +820,10 @@ def iter_process_prompts(csv_path, wait=60, profile_dir=None, pause_for_login=Fa
                     "final": True
                 }
 
-                time.sleep(min(10, remaining))
-                remaining -= min(10, remaining)
+                # ボタンの反応を良くするため1秒待機に変更
+                wait_step = min(1, remaining)
+                time.sleep(wait_step)
+                remaining -= wait_step
         
         # 最終結果
         result = {

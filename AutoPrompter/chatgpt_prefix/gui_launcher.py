@@ -40,7 +40,8 @@ class SoraGUIApplication:
         """Setup callback functions"""
         self.gui_window.set_callbacks(
             on_start=self.on_start,
-            on_stop=self.on_stop
+            on_stop=self.on_stop,
+            on_skip_wait=self.on_skip_wait
         )
         
         self.process_monitor.set_callbacks(
@@ -78,6 +79,18 @@ class SoraGUIApplication:
         """Stop process callback"""
         self.gui_window.add_log("Stopping process...", "warning")
         self.process_monitor.stop_process()
+
+    def on_skip_wait(self):
+        """Skip wait callback"""
+        settings = self.gui_window.get_settings()
+        csv_path = settings.get('csv')
+        if csv_path:
+            skip_file = Path(csv_path).parent / ".chatgpt_skip_wait"
+            try:
+                skip_file.touch()
+                self.gui_window.add_log("待機スキップをリクエストしました", "warning")
+            except Exception as e:
+                self.gui_window.add_log(f"スキップリクエストに失敗しました: {e}", "error")
     
     def on_finished(self, exit_code: int, result: dict):
         """Process finished callback"""

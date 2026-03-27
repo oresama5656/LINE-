@@ -248,6 +248,9 @@ class EventHandler:
             
             tag = "info" if not dry_run else "debug"
             self.gui.add_log(message, tag)
+        
+        # 進行中のステータスではスキップボタンを無効化
+        self.gui.skip_btn.configure(state="disabled")
     
     def _handle_retry(self, event: Dict[str, Any]):
         """Retry information"""
@@ -281,6 +284,9 @@ class EventHandler:
         # Add wait info to log (show every 10 seconds to avoid spam)
         if seconds % 10 == 0 or seconds <= 5:
             self.gui.add_log(log_message, "info")
+            
+        # 待機中のみスキップボタンを有効化
+        self.gui.skip_btn.configure(state="normal")
     
     def _handle_csv_updated(self, event: Dict[str, Any]):
         """CSV updated"""
@@ -327,6 +333,9 @@ class EventHandler:
             
             self.gui.add_log(message, tag)
         
+        # 終了時はスキップボタンを無効化
+        self.gui.skip_btn.configure(state="disabled")
+        
         # Set progress bar to 100%
         self.gui.update_progress(total, total)
     
@@ -349,6 +358,9 @@ class EventHandler:
             message = f"Error in {step}: {error}"
 
         self.gui.add_log(message, "error")
+
+        # エラー時はスキップボタンを無効化
+        self.gui.skip_btn.configure(state="disabled")
 
         # 特殊文字エラーの場合は追加の説明を表示
         if "UnicodeEncodeError" in error_type or "UnicodeEncodeError" in str(error) or "特殊文字" in str(error):
